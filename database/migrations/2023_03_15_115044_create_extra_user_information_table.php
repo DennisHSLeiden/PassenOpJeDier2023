@@ -15,12 +15,12 @@ class CreateExtraUserInformationTable extends Migration
     {
         if(!Schema::hasTable('extra_user_information')){
             Schema::create('extra_user_information', function (Blueprint $table) {
-                $table->bigIncrements('user_id');
+                $table->bigInteger('user_id')->unsigned();
                 $table->string('voornaam');
                 $table->string('tussenvoegsel')->nullable();
                 $table->string('achternaam');
                 $table->string('telefoonnummer')->unique();
-                $table->integer('leeftijd');
+                $table->date('geboortedatum');
                 $table->string('woonplaats');
                 $table->string('straat');
                 $table->string('huisnummer');

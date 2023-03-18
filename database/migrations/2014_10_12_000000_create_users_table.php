@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('users')){
+        if(!Schema::hasTable('users')){ //This is actually just account, but i didnt want to mess with breeze
             Schema::create('users', function (Blueprint $table) {
                 $table->bigIncrements('user_id');
                 $table->string('name');
