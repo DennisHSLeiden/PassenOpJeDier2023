@@ -16,11 +16,11 @@ class CreateHuisdierTable extends Migration
         if(!Schema::hasTable('huisdier')){
             Schema::create('huisdier', function (Blueprint $table) {
                 $table->bigIncrements('huisdier_id');
-                $table->bigInteger('user_id')->unsigned();
+                $table->string('email');
                 $table->string('naam');
                 $table->string('soort');
                 $table->text('generieke_informatie');
-                $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+                $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
             });
         }
     }

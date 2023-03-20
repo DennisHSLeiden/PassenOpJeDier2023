@@ -15,7 +15,7 @@ class ExtraUserInformationTableSeeder extends Seeder
     public function run()
     {
         DB::table('extra_user_information')->insert([
-            'user_id' => '1', //this references Dennis in users
+            'email' => 'dennisleyting@gmail.com', //this references Dennis in users
             'voornaam' => 'Dennis',
             'achternaam' => 'Leyting',
             'telefoonnummer' => '0637425868',
@@ -26,7 +26,7 @@ class ExtraUserInformationTableSeeder extends Seeder
         ]);
 
         DB::table('extra_user_information')->insert([
-            'user_id' => '2', //this references Dino in users
+            'email' => 'dinosaur@gmail.com', //this references Dino in users
             'voornaam' => 'Dino',
             'achternaam' => 'Saur',
             'telefoonnummer' => '0612345678',

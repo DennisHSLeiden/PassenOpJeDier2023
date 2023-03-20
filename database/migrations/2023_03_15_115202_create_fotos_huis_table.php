@@ -16,12 +16,12 @@ class CreateFotosHuisTable extends Migration
         if(!Schema::hasTable('fotos_huis')){
             Schema::create('fotos_huis', function (Blueprint $table) {
                 $table->bigIncrements('foto_huis_id');
-                $table->bigInteger('user_id')->unsigned();
+                $table->string('email');
                 $table->string('titel');
                 $table->string('src');
                 $table->string('alt');
                 $table->text('beschrijving');
-                $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+                $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
             });
         }
     }

@@ -16,11 +16,11 @@ class CreateReactieTable extends Migration
         if(!Schema::hasTable('reactie')){
             Schema::create('reactie', function (Blueprint $table) {
                 $table->bigIncrements('reactie_id');
-                $table->bigInteger('user_id')->unsigned();
+                $table->string('email');
                 $table->bigInteger('aanvraag_id')->unsigned();
                 $table->text('comment');
                 $table->boolean('antwoord')->default(false);
-                $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+                $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
                 $table->foreign('aanvraag_id')->references('aanvraag_id')->on('aanvraag')->onDelete('cascade');
             });
         }

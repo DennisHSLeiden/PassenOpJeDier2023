@@ -16,7 +16,7 @@ class FotosHuisTableSeeder extends Seeder
     {
         DB::table('fotos_huis')->insert([ // id =1
             // \Ramsey\Uuid\Uuid::uuid4()->toString()
-            'user_id' => '1', //Refereert naar Dennis in usertable
+            'email' => 'dennisleyting@gmail.com', //Refereert naar Dennis in usertable
             'titel' => 'Futuristisch huis',
             'src' => 'public\img\FuturistischHuis.jpg',
             'alt' => 'Een Futuristisch huis',

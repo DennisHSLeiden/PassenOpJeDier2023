@@ -16,10 +16,10 @@ class CreateReviewTable extends Migration
         if(!Schema::hasTable('review')){
             Schema::create('review', function (Blueprint $table) {
                 $table->bigIncrements('review_id');
-                $table->bigInteger('user_id')->unsigned();
+                $table->string('email');
                 $table->bigInteger('huisdier_id')->unsigned();
                 $table->text('review');
-                $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+                $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
                 $table->foreign('huisdier_id')->references('huisdier_id')->on('huisdier')->onDelete('cascade');
             });
         }
