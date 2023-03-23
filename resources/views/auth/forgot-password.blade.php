@@ -1,36 +1,39 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@section('title')
+    {{"PassenOpJeDier | Registreren"}}
+@endsection
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
+@extends('body')
+@section('content')
+<main class="content">
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+    <section>
+        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+    </section>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <!-- Session Status -->
+    <x-auth-session-status :status="session('status')" />
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+    <!-- Validation Errors -->
+    <x-auth-validation-errors :errors="$errors" />
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+    <form method="POST" action="{{ route('password.email') }}">
+        @csrf
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
+        <!-- Email Address -->
+        <section>
+            <x-label for="email" :value="__('Email')" />
 
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+            <x-input id="email" type="email" name="email" :value="old('email')" required autofocus />
+        </section>
+
+        <section>
+            <x-button>
+                {{ __('Email Password Reset Link') }}
+            </x-button>
+        </section>
+    </form>
+
+</main>
+
+@endsection
+
