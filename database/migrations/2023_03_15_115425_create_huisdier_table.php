@@ -18,8 +18,8 @@ class CreateHuisdierTable extends Migration
                 $table->bigIncrements('huisdier_id');
                 $table->string('email');
                 $table->string('naam');
-                $table->string('soort');
-                $table->text('generieke_informatie');
+                $table->string('soort')->nullable();
+                $table->string('generieke_informatie')->nullable();
                 $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
             });
         }

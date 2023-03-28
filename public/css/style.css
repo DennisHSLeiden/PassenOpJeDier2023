@@ -43,3 +43,24 @@ footer {
     right:20px;
     font-size: 13px
 }
+
+.addHuisdierCard__overlay {
+    position: fixed;
+    z-index: 2;
+    top: -2vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    transition: 0.2s all;
+
+    opacity: 0;
+    background: none;
+}

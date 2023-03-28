@@ -17,13 +17,13 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Dennis', //this will get id 1
             'email' => 'dennisleyting@gmail.com',
-            'password' => '12345'
+            'password' => '123456789'
         ]);
 
         DB::table('users')->insert([
             'name' => 'Dino', //this will get id 2
             'email' => 'dinosaur@gmail.com',
-            'password' => '12345'
+            'password' => '123456789'
         ]);
     }
 }

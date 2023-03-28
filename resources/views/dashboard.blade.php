@@ -1,5 +1,5 @@
 @section('title')
-{{"PassenOpJeDier | Registreren"}}
+{{"PassenOpJeDier | Dashboard"}}
 @endsection
 
 @extends('body')
@@ -18,9 +18,15 @@
             {{ __('Log Out') }}
         </x-responsive-nav-link>
     </form>
-    <div>
-        <div>{{ Auth::user()->email }}</div>
-    </div>
+    <h2>{{ Auth::user()->email }}</h2>
+
+    <section id="js--addHuisdierBtn">
+        <span>add</span>
+    </section>
+
+    @include('./components/non-breeze/add_huisdier_overlay')
+
+
 </main>
 
 @endsection
