@@ -41,4 +41,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $table ="users";
+
+
+    public function allFotosWoning(){
+        return $this->hasMany('\App\Models\FotosHuis',"email","email");
+        //return $this->hasMany('\App\Models\Foto',"foreignKey in woning","waar hij naar refereert in user")
+    }
+
+    public function allReacties(){
+        return $this->hasMany('\App\Models\Reactie',"email","email");
+    }
+
+    public function allHuisdieren(){
+        return $this->hasMany('\App\Models\Huisdier',"email","email");
+    }
+
+    public function allReviews(){
+        return $this->hasMany('\App\Models\Review',"email","email");
+    }
+
+    public function UserExtra_user_information(){
+        return $this->belongsTo('\App\Models\ExtraUserInformation',"email","email");
+    }
 }

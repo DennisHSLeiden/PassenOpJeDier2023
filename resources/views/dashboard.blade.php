@@ -26,6 +26,14 @@
 
     @include('./components/non-breeze/add_huisdier_overlay')
 
+    <section>
+        @foreach ($huisdieren as $huisdier)
+        <a href= '/huisdier/{{$huisdier->huisdier_id}}/' class="js--curtainCard">
+            <h1>Hello dit is een huisdier {{$huisdier->naam}}</h1>
+        </a>
+        @endforeach
+    </section>
+
 
 </main>
 

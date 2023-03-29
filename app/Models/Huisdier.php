@@ -27,4 +27,4 @@ class Huisdier extends Model
         return $this->hasMany('\App\Models\FotosHuisdier',"huisdier_id","huisdier_id");
     }
 }
-}
+
