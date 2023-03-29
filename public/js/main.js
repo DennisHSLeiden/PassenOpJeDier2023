@@ -1,5 +1,7 @@
 window.onload = () => {
 
+
+    // Straight up coppy van SHADEY, om een overlay te plaatsen en verwijderen
     const openOverlay = (el) => {
         el.style.display = "flex"
         setTimeout(() => {
@@ -27,8 +29,6 @@ window.onload = () => {
     const addHuisdierBtnSubmit = document.getElementById("js--addHuisdierBtnSubmit");
     const addHuisdierBtn = document.getElementById("js--addHuisdierBtn");
     const cancelAddHuisdierBtn = document.getElementById("js--cancelAddHuisdier");
-
-
 
     addHuisdierBtn.addEventListener("click", () => {
         openOverlay(addHuisdierOverlay);
