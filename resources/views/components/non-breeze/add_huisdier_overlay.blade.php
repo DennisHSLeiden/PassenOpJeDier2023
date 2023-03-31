@@ -10,8 +10,8 @@
         <input type="text" name="soort" placeholder="Geef hier de soort van je huisdier">
 
         
-        <label for="GeneriekeInfo">Generieke informatie</label>
-        <input type="text" name="GeneriekeInfo" placeholder="Bijvoorbeeld, slaapt elke dag om 8 uur">
+        <label for="generieke_informatie">Generieke informatie</label>
+        <input type="text" name="generieke_informatie" placeholder="Bijvoorbeeld, slaapt elke dag om 8 uur">
 
         <input type="submit" id="js--addHuisdierBtnSubmit" value="Voeg Huisdier toe">
     </form>
