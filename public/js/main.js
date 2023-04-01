@@ -24,19 +24,21 @@ window.onload = () => {
         }, 200);
     }
 
-    const addHuisdierForm = document.getElementById('js--addHuisdierForm');
-    const addHuisdierOverlay = document.getElementById("js--addHuisdierOverlay");
-    const addHuisdierBtnSubmit = document.getElementById("js--addHuisdierBtnSubmit");
     const addHuisdierBtn = document.getElementById("js--addHuisdierBtn");
+    const addHuisdierOverlay = document.getElementById("js--addHuisdierOverlay");
     const cancelAddHuisdierBtn = document.getElementById("js--cancelAddHuisdier");
+    const addHuisdierBtnSubmit = document.getElementById("js--addHuisdierBtnSubmit");
+    const addHuisdierForm = document.getElementById('js--addHuisdierForm');
 
+    console.log(addHuisdierBtn);
     addHuisdierBtn.addEventListener("click", () => {
+
         openOverlay(addHuisdierOverlay);
     });
 
-    cancelAddHuisdierBtn.addEventListener("click", () => {
-        closeOverlay(addHuisdierOverlay);
-    });
+    // cancelAddHuisdierBtn.addEventListener("click", () => {
+    //     closeOverlay(addHuisdierOverlay);
+    // });
 
     addHuisdierBtnSubmit.addEventListener("click", (e) => {
         e.preventDefault();
@@ -44,6 +46,30 @@ window.onload = () => {
         closeOverlay(addHuisdierOverlay);
         addHuisdierForm.submit();     
     });      
+
+
+
+    const addAanvraagBtn = document.getElementById("js--addAanvraagBtn");
+    const addAanvraagOverlay = document.getElementById("js--addAanvraagOverlay");
+    const cancelAddAanvraagBtn = document.getElementById("js--cancelAddAanvraag");
+    const addAanvraagBtnSubmit = document.getElementById("js--addAanvraagBtnSubmit");
+    const addAanvraagForm = document.getElementById('js--addAanvraagForm');
+
+    addAanvraagBtn.addEventListener("click", () => {
+        console.log('hi');
+        openOverlay(addAanvraagOverlay);
+    });
+
+    // cancelAddAanvraagBtn.addEventListener("click", () => {
+    //     closeOverlay(addAanvraagOverlay);
+    // });
+
+    addAanvraagBtnSubmit.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        closeOverlay(addAanvraagOverlay);
+        addAanvraagForm.submit();     
+    });
 
     
 }

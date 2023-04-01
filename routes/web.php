@@ -27,3 +27,6 @@ require __DIR__.'/auth.php';
 
 Route::post('/addHuisdier', 'App\Http\Controllers\AddHuisdierController@addHuisdier');
 
+Route::post('/addAanvraag', 'App\Http\Controllers\AddAanvraagController@addAanvraag');
+
+

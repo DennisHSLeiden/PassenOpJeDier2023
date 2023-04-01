@@ -17,9 +17,9 @@ class CreateAanvraagTable extends Migration
             Schema::create('aanvraag', function (Blueprint $table) {
                 $table->bigIncrements('aanvraag_id');
                 $table->bigInteger('huisdier_id')->unsigned();
-                $table->text('wanneer');
-                $table->integer('prijs');
-                $table->text('extra_informatie');
+                $table->string('wanneer');
+                $table->string('prijs');
+                $table->string('extra_informatie');
                 $table->foreign('huisdier_id')->references('huisdier_id')->on('huisdier')->onDelete('cascade');
             });
         }

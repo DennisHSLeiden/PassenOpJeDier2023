@@ -9,7 +9,7 @@ class Aanvraag extends Model
 {
     use HasFactory;
 
-    protected $table ="Aanvraag";
+    protected $table ="aanvraag";
 
     public function aanvraagHuisdier(){
         return $this->belongsTo('\App\Models\Huisdier',"huisdier_id","huisdier_id");
