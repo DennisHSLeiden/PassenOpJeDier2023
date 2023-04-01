@@ -25,7 +25,7 @@
 
         <section class="column-information">
 
-            <section class="row-information height-50 flex-center">
+            <section class="row-information row-dashboard-style">
 
                 <section class="general-Card column-information">
 
@@ -42,15 +42,30 @@
                 </section>
 
                 <section class="general-Card">
-                    <h1> Hier komen de aanvragen die je zelf hebt gemaakt </h1>
+                    <section class="add-button" id="js--addAanvraagBtn">
+                        <span>Maak een nieuwe aanvraag aan</span>
+                    </section>
+                    @include('./components/non-breeze/add_aanvraag_overlay')
+                    <section>
+                        @foreach ($eigen_aanvragen as $eigen_aanvraag)
+                        <h1>Ik zoek iemand voor {{$eigen_aanvraag->aanvraagHuisdier->naam}}</h1>
+                        @endforeach
+                    </section>
                 </section>
 
             </section>
 
-            <section class="row-information height-50 flex-center">
+            <section class="row-information row-dashboard-style">
 
                 <section class="general-Card">
-                    <h1> Hier komen de recties die je zelf hebt geplaatst op een huisdier </h1>
+                    <section class="add-button" id="js--addOpdrachtBtn">
+                        <span>Vind een nieuwe opdracht</span>
+                    </section>
+                    <section>
+                        @foreach ($aanvragen as $aanvraag)
+                        <h1>Hello dit is een aanvraag voor {{$aanvraag->aanvraagHuisdier->naam}}</h1>
+                        @endforeach
+                    </section>
                 </section>
 
                 <section class="general-Card">
@@ -60,39 +75,6 @@
             </section>
         </section>
     </section>
-
-    @include('./components/non-breeze/add_huisdier_overlay')
-
-    <section>
-        @foreach ($huisdieren as $huisdier)
-        <a href= '/huisdier/{{$huisdier->huisdier_id}}/'>
-            <h1>Hello dit is een huisdier {{$huisdier->naam}}</h1>
-        </a>
-        @endforeach
-    </section>
-
-    <h1> Hier kan je je eigen aanvragen en toevoegen, en zien of er een nieuwe reactie is </h1>
-
-    <section id="js--addAanvraagBtn">
-        <span>KLIK HIER VOOR AANVRAAG AANMAKEN</span>
-    </section>
-
-    @include('./components/non-breeze/add_aanvraag_overlay')
-
-    <section>
-        @foreach ($eigen_aanvragen as $eigen_aanvraag)
-        <h1>Hello dit is een aanvraag voor {{$eigen_aanvraag->aanvraagHuisdier->naam}}</h1>
-        @endforeach
-    </section>
-
-    <h1> hier ga je alle aanvragen van andere mensen zien </h1>
-
-    <section>
-        @foreach ($aanvragen as $aanvraag)
-        <h1>Hello dit is een aanvraag voor {{$aanvraag->aanvraagHuisdier->naam}}</h1>
-        @endforeach
-    </section>
-
 
 </main>
 

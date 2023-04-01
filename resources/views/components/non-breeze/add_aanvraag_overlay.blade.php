@@ -4,7 +4,7 @@
 
 
         @foreach ($huisdieren as $huisdier)
-        <label for="huisdier_id">{{$huisdier->naam}}?</label><br>
+        <label for="huisdier_id">{{$huisdier->naam}}</label><br>
         <input type="radio" id="{{$huisdier->huisdier_id}}" name="huisdier_id" value="{{$huisdier->huisdier_id}}">
         @endforeach
 
