@@ -17,13 +17,8 @@ Route::get('/', function () {
     return view('auth.register');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@show')->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+// Route::middleware(['auth', 'blocked'])->group(function(){
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@show')->middleware(['auth', 'blocked'])->name('dashboard');
 
 Route::post('/addHuisdier', 'App\Http\Controllers\AddHuisdierController@addHuisdier');
 
@@ -39,8 +34,13 @@ Route::get('/admin', 'App\Http\Controllers\AdminController@Show');
 Route::get('/admin/{id}/verwijder', 'App\Http\Controllers\AdminController@verwijder');
 Route::get('/admin/{email}/blokkeer', 'App\Http\Controllers\AdminController@blokkeer');
 
+Route::get('/blocked', 'App\Http\Controllers\BlockController@show');
+
+// });
 
 
+
+require __DIR__.'/auth.php';
 
 
 
