@@ -16,7 +16,7 @@
 
     <section class="row-information verdeling">
         <section class="cardsHolder AllUsers">
-            <h1>Hier zijn alle gegbruikers</h1>
+            <h1>Hier zijn alle gebruikers</h1>
             @foreach ($users as $user)
             <section class="row-information admin-card">
                 @if ($user->role === 'User')
