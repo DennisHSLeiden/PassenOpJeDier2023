@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsersTableSeeder::class,
             // ExtraUserInformationTableSeeder::class,
+            SoortenTableSeeder::class,
             HuisdierTableSeeder::class,
             // FotosHuisTableSeeder::class,
             // FotosHuisdierTableSeeder::class,

@@ -18,12 +18,14 @@ class CreateHuisdierTable extends Migration
                 $table->bigIncrements('huisdier_id');
                 $table->string('email');
                 $table->string('naam');
-                $table->string('soort')->nullable();
+                $table->bigInteger('soort_id')->unsigned();
                 $table->string('generieke_informatie')->nullable();
                 $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
+                $table->foreign('soort_id')->references('soort_id')->on('soorten')->onDelete('cascade');
             });
         }
     }
+    
 
     /**
      * Reverse the migrations.

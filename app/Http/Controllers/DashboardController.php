@@ -7,6 +7,7 @@ use DB;
 use App\Models\Huisdier;
 use App\Models\User;
 use App\Models\Reactie;
+use App\Models\Soort;
 
 
 class DashboardController extends Controller
@@ -55,12 +56,14 @@ class DashboardController extends Controller
             }
         }
         $huisdieren = User::where('email', $currentUserEmail)->first()->allHuisdieren;
+        $soorten = Soort::all();
 
         $role = User::where('email', $currentUserEmail)->first()->role;
 
     
         return view('dashboard',[
             'huisdieren'=> $huisdieren,
+            'soorten' => $soorten,
             'eigen_aanvragen'=> $eigen_aanvragen,
             'aanvragen' => $aanvragen,
             'reacties' => $reacties,

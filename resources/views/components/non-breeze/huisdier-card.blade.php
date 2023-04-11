@@ -13,7 +13,7 @@
 
             <section class="column-information huisdier-card-information">
                 <h1>{{$huisdier->naam}}</h1>
-                <h1>{{$huisdier->soort}}</h1>
+                <h1>{{$huisdier->huisdierSoort->soort}}</h1>
             </section>
             
         </section>

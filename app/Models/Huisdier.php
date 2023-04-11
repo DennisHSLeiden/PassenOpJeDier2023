@@ -15,6 +15,10 @@ class Huisdier extends Model
         return $this->belongsTo('\App\Models\User',"email","email");
     }
 
+    public function huisdierSoort(){
+        return $this->belongsTo('\App\Models\Soort',"soort_id","soort_id");
+    }
+
     public function allReviews(){
         return $this->hasMany('\App\Models\Review',"huisdier_id","huisdier_id");
     }

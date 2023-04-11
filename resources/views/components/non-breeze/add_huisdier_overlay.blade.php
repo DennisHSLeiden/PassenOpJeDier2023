@@ -6,8 +6,10 @@
         <input type="text" name="naam" placeholder="Geef hier de naam van je huisdier">
 
 
-        <label for="soort">Soort van je huisdier</label>
-        <input type="text" name="soort" placeholder="Geef hier de soort van je huisdier">
+        @foreach ($soorten as $soort)
+            <label for="soort_id">{{$soort->soort}}</label><br>
+            <input type="radio" id="{{$soort->soort_id}}" name="soort_id" value="{{$soort->soort_id}}">
+        @endforeach
 
         
         <label for="generieke_informatie">Generieke informatie</label>
