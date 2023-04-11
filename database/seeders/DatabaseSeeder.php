@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            // UsersTableSeeder::class,
+            UsersTableSeeder::class,
             // ExtraUserInformationTableSeeder::class,
             HuisdierTableSeeder::class,
             // FotosHuisTableSeeder::class,
             // FotosHuisdierTableSeeder::class,
             AanvraagTableSeeder::class,
-            // ReactieTableSeeder::class,
-            // ReviewTableSeeder::class
+            ReactieTableSeeder::class,
+            ReviewTableSeeder::class
         ]);
     }
 }

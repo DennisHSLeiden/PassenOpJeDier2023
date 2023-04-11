@@ -54,13 +54,17 @@ class DashboardController extends Controller
                 }
             }
         }
+        $huisdieren = User::where('email', $currentUserEmail)->first()->allHuisdieren;
+
+        $role = User::where('email', $currentUserEmail)->first()->role;
 
     
         return view('dashboard',[
             'huisdieren'=> $huisdieren,
             'eigen_aanvragen'=> $eigen_aanvragen,
             'aanvragen' => $aanvragen,
-            'reacties' => $reacties
+            'reacties' => $reacties,
+            'role' => $role
         ]);
     }
 }

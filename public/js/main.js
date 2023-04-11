@@ -30,7 +30,6 @@ window.onload = () => {
     const addHuisdierBtnSubmit = document.getElementById("js--addHuisdierBtnSubmit");
     const addHuisdierForm = document.getElementById('js--addHuisdierForm');
 
-    console.log(addHuisdierBtn);
     addHuisdierBtn.addEventListener("click", () => {
 
         openOverlay(addHuisdierOverlay);
@@ -71,18 +70,12 @@ window.onload = () => {
         addAanvraagForm.submit();     
     });
 
-    const OpenReactieBtn = document.getElementsByClassName("js--OpenReactieBtn");
-    const addReactieOverlay = document.getElementById("js--addReactieOverlay")
-    const cancelAddReactieBtn = document.getElementById("js--cancelAddReactie");
 
-
-    OpenReactieBtn.addEventListener("click", () => {
-        openOverlay(addReactieOverlay)
-    });
-
-    cancelAddReactieBtn.addEventListener("click", () => {
-        closeOverlay(addReactieOverlay);
-    });
+    const roleValue = document.getElementById("js--adminButton");
+    var role = roleValue.dataset.role;
+    if (role === 'admin'){
+        roleValue.style.display = "block"
+    }
 
     
 }

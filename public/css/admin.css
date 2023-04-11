@@ -1,0 +1,34 @@
+.cardsHolder {
+    width:340px;
+    height:80%;
+    background: rgb(230, 230, 230);
+    padding:10px;
+    overflow-y: auto;
+}
+
+.verdeling {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    height:80%;
+}
+
+.admin-card {
+    position:relative;
+}
+
+.AdminButton {
+    background:cyan;
+    width:100px;
+    height:15px;
+    border-radius: 10px;
+
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.AdminButton a{
+    align-content: center;
+}

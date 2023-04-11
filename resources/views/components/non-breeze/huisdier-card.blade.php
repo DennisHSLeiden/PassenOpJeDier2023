@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/css/huisdier-card.css">
 @endpush
 
-<a href= '/huisdier/{{$huisdier->huisdier_id}}/' class="js--curtainCard">
+<a href= '/huisdier/{{$huisdier->huisdier_id}}/' class="js--huisdierCard">
     <section  class="Jouw-Huisdier-Card">
 
         <section class="row-information">

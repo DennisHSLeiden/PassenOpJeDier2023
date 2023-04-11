@@ -35,6 +35,12 @@ Route::get('/addReactie/{id}', 'App\Http\Controllers\ReactieController@show');
 Route::post('/addReactie/{id}/aanmaken', 'App\Http\Controllers\ReactieController@addReactie');
 Route::post('/reageer/{id}', 'App\Http\Controllers\ReactieController@Reageer');
 
+Route::get('/admin', 'App\Http\Controllers\AdminController@Show');
+Route::get('/admin/{id}/verwijder', 'App\Http\Controllers\AdminController@verwijder');
+Route::get('/admin/{email}/blokkeer', 'App\Http\Controllers\AdminController@blokkeer');
+
+
+
 
 
 

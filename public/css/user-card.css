@@ -1,6 +1,5 @@
-.Jouw-reactie-Card {
-    width:280px;
-    height:130px;
+.Jouw-user-Card {
+    width:auto;
     background:red;
     margin: 10px;
     border-radius: 10px;
@@ -20,7 +19,7 @@ img {
     border-radius: 10px;
 }
 
-.reactie-card-information {
+.user-card-information {
     display:flex;
     align-items: center;
     justify-content: center;

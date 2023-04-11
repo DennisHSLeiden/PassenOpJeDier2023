@@ -14,8 +14,6 @@
             
             {{$aanvraag->aanvraag_id}}
 
-            
-
             <label for="comment">geef hier je reactie</label>
             <input type="text" name="comment" placeholder="Geef hier de comment van je huisdier">
 

@@ -20,6 +20,10 @@
             {{ __('Log Out') }}
         </x-responsive-nav-link>
     </form>
+    
+    <a href="/admin" class="adminbutton" id="js--adminButton" data-role="{{$role}}">
+        Ga naar Admin Page
+    </a>
 
     <section class="all-information">
 
@@ -33,7 +37,7 @@
                         <span>Voeg Nieuw Huisdier Toe</span>
                     </section>
                     @include('./components/non-breeze/add_huisdier_overlay')
-                    <section class="huisdier-cards">
+                    <section>
                         @foreach ($huisdieren as $huisdier)
                             @include('./components/non-breeze/huisdier-card')
                         @endforeach
@@ -46,7 +50,7 @@
                         <span>Maak een nieuwe aanvraag aan</span>
                     </section>
                     @include('./components/non-breeze/add_aanvraag_overlay')
-                    <section>
+                    <section >
                         @foreach ($eigen_aanvragen as $eigen_aanvraag)
                             @include('./components/non-breeze/aanvraag-card')
                         @endforeach
@@ -58,7 +62,7 @@
             <section class="row-information row-dashboard-style">
 
                 <section class="general-Card">
-                    <h1>Hier kan je reageren op aanvragen</h1>
+                    <h1 class="titel-aanvragen">Hier kan je reageren op aanvragen</h1>
                     <section class="alle-available-opdrachten column-information">
                         @foreach ($aanvragen as $aanvraag)
                             @include('./components/non-breeze/reactie-card')

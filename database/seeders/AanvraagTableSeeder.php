@@ -27,6 +27,12 @@ class AanvraagTableSeeder extends Seeder
             'prijs' => '30 euro',
         ]);
 
+        DB::table('aanvraag')->insert([//id =1
+            'huisdier_id' => '3', //Refereert naar Cooper in HuisdierTableSeeder
+            'wanneer' => 'Gisteren',
+            'prijs' => '30 euro per dag',
+        ]);
+
         
 
     }
