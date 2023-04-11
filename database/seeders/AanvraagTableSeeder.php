@@ -18,9 +18,16 @@ class AanvraagTableSeeder extends Seeder
         DB::table('aanvraag')->insert([//id =1
             'huisdier_id' => '1', //Refereert naar Otso in HuisdierTableSeeder
             'wanneer' => 'Ik heb een sitter nodig vanaf middag 3 tot middag 18 maart',
-            'prijs' => 30,
-            'extra_informatie' => 'op 13 heeft hij een dokters afspraak bij dokter hond'
+            'prijs' => '20 cent',
         ]);
+
+        DB::table('aanvraag')->insert([//id =1
+            'huisdier_id' => '2', //Refereert naar Cooper in HuisdierTableSeeder
+            'wanneer' => 'Morgen',
+            'prijs' => '30 euro',
+        ]);
+
+        
 
     }
 }

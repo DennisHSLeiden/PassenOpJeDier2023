@@ -18,8 +18,8 @@ class CreateReactieTable extends Migration
                 $table->bigIncrements('reactie_id');
                 $table->string('email');
                 $table->bigInteger('aanvraag_id')->unsigned();
-                $table->text('comment');
-                $table->boolean('antwoord')->default(false);
+                $table->string('comment');
+                $table->boolean('antwoord')->nullable();
                 $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
                 $table->foreign('aanvraag_id')->references('aanvraag_id')->on('aanvraag')->onDelete('cascade');
             });
@@ -38,10 +38,5 @@ class CreateReactieTable extends Migration
             $table->dropForeign('reactie_user_id_foreign');
             $table->dropForeign('reactie_aanvraag_id_foreign');
         });
-        // Schema::table('reactie', function (Blueprint $table){
-        //     $table->dropForeign(['user_id']);
-        //     $table->dropForeign(['huisdier_id']);
-        //     $table->dropColumn(['user_id','huisdier_id']);
-        // });
     }
 }

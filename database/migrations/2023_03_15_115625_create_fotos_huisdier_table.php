@@ -20,7 +20,7 @@ class CreateFotosHuisdierTable extends Migration
                 $table->string('titel');
                 $table->string('src');
                 $table->string('alt');
-                $table->text('beschrijving');
+                $table->string('beschrijving');
                 $table->foreign('huisdier_id')->references('huisdier_id')->on('huisdier')->onDelete('cascade');
             });
         }

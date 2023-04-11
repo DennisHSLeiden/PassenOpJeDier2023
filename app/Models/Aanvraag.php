@@ -16,7 +16,7 @@ class Aanvraag extends Model
     }
 
     public function allReacties(){
-        return $this->hasMany('\App\Models\Reactie',"huisdier_id","huisdier_id");
+        return $this->hasMany('\App\Models\Reactie',"aanvraag_id","aanvraag_id");
     }
 }
 

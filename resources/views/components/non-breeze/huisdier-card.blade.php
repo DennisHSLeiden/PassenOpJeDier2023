@@ -1,6 +1,6 @@
-@section('css')
+@push('css')
 <link rel="stylesheet" href="/css/huisdier-card.css">
-@endsection
+@endpush
 
 <a href= '/huisdier/{{$huisdier->huisdier_id}}/' class="js--curtainCard">
     <section  class="Jouw-Huisdier-Card">

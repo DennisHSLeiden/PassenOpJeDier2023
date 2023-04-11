@@ -18,7 +18,7 @@ class CreateReviewTable extends Migration
                 $table->bigIncrements('review_id');
                 $table->string('email');
                 $table->bigInteger('huisdier_id')->unsigned();
-                $table->text('review');
+                $table->string('review');
                 $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
                 $table->foreign('huisdier_id')->references('huisdier_id')->on('huisdier')->onDelete('cascade');
             });

@@ -20,7 +20,7 @@ class CreateFotosHuisTable extends Migration
                 $table->string('titel');
                 $table->string('src');
                 $table->string('alt');
-                $table->text('beschrijving');
+                $table->string('beschrijving');
                 $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
             });
         }

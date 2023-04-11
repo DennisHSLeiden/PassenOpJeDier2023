@@ -117,7 +117,6 @@ footer {
     height:50%
 }
 
-
 .general-Card {
     width:36%;
     height:80%;
@@ -131,6 +130,41 @@ footer {
     background: yellow;
 }
 
+.add-button :hover{
+    cursor: pointer;
+}
+
+.button :hover{
+    cursor:pointer;
+}
+
 .huisdier-cards {
     overflow-y: auto;
+}
+
+.alle-available-opdrachten {
+    display:flex;
+    align-items: center;
+    gap:10px;
+}
+
+.addReactieCard__overlay {
+    position: fixed;
+    z-index: 2;
+    top: -2vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    transition: 0.2s all;
+
+    opacity: 0;
+    background: none;
 }

@@ -27,6 +27,17 @@ require __DIR__.'/auth.php';
 
 Route::post('/addHuisdier', 'App\Http\Controllers\AddHuisdierController@addHuisdier');
 
-Route::post('/addAanvraag', 'App\Http\Controllers\AddAanvraagController@addAanvraag');
+Route::post('/addAanvraag', 'App\Http\Controllers\AanvraagController@addAanvraag');
+Route::get('/aanvraag-details/{id}/', 'App\Http\Controllers\AanvraagController@show');
+
+
+Route::get('/addReactie/{id}', 'App\Http\Controllers\ReactieController@show');
+Route::post('/addReactie/{id}/aanmaken', 'App\Http\Controllers\ReactieController@addReactie');
+Route::post('/reageer/{id}', 'App\Http\Controllers\ReactieController@Reageer');
+
+
+
+
+
 
 

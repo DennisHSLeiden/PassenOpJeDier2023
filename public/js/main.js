@@ -36,9 +36,9 @@ window.onload = () => {
         openOverlay(addHuisdierOverlay);
     });
 
-    // cancelAddHuisdierBtn.addEventListener("click", () => {
-    //     closeOverlay(addHuisdierOverlay);
-    // });
+    cancelAddHuisdierBtn.addEventListener("click", () => {
+        closeOverlay(addHuisdierOverlay);
+    });
 
     addHuisdierBtnSubmit.addEventListener("click", (e) => {
         e.preventDefault();
@@ -60,15 +60,28 @@ window.onload = () => {
         openOverlay(addAanvraagOverlay);
     });
 
-    // cancelAddAanvraagBtn.addEventListener("click", () => {
-    //     closeOverlay(addAanvraagOverlay);
-    // });
+    cancelAddAanvraagBtn.addEventListener("click", () => {
+        closeOverlay(addAanvraagOverlay);
+    });
 
     addAanvraagBtnSubmit.addEventListener("click", (e) => {
         e.preventDefault();
 
         closeOverlay(addAanvraagOverlay);
         addAanvraagForm.submit();     
+    });
+
+    const OpenReactieBtn = document.getElementsByClassName("js--OpenReactieBtn");
+    const addReactieOverlay = document.getElementById("js--addReactieOverlay")
+    const cancelAddReactieBtn = document.getElementById("js--cancelAddReactie");
+
+
+    OpenReactieBtn.addEventListener("click", () => {
+        openOverlay(addReactieOverlay)
+    });
+
+    cancelAddReactieBtn.addEventListener("click", () => {
+        closeOverlay(addReactieOverlay);
     });
 
     

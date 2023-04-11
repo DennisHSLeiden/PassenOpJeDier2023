@@ -21,4 +21,6 @@
 
         <input type="submit" id="js--addAanvraagBtnSubmit" value="Voeg Aanvraag toe">
     </form>
+    <input type="submit" class="addAanvraagCard__cancelBtn" id="js--cancelAddAanvraag" value="Cancel">
+
 </article> 

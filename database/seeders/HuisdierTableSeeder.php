@@ -21,7 +21,7 @@ class HuisdierTableSeeder extends Seeder
             'generieke_informatie' => 'Otso eet 3 maaltijden per dag, allemaal uit dezlfde zak, en drinkt 3 Liter water'
         ]);
         DB::table('huisdier')->insert([ //id #2
-            'email' => 'dennisleyting@gmail.com', //Refereert naar Dennis in usertable
+            'email' => 'test@test.com', //Refereert naar test in usertable
             'naam' => 'Cooper',
             'soort' => 'Honestly dont know',
             'generieke_informatie' => 'Cooper eet 5 maaltijden per dag, allemaal uit verschillende zakken, en drinkt 3 Liter whiskey'

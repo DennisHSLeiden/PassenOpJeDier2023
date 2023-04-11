@@ -35,7 +35,7 @@
                     @include('./components/non-breeze/add_huisdier_overlay')
                     <section class="huisdier-cards">
                         @foreach ($huisdieren as $huisdier)
-                        @include('./components/non-breeze/huisdier-card')
+                            @include('./components/non-breeze/huisdier-card')
                         @endforeach
                     </section>
 
@@ -48,7 +48,7 @@
                     @include('./components/non-breeze/add_aanvraag_overlay')
                     <section>
                         @foreach ($eigen_aanvragen as $eigen_aanvraag)
-                        <h1>Ik zoek iemand voor {{$eigen_aanvraag->aanvraagHuisdier->naam}}</h1>
+                            @include('./components/non-breeze/aanvraag-card')
                         @endforeach
                     </section>
                 </section>
@@ -58,12 +58,10 @@
             <section class="row-information row-dashboard-style">
 
                 <section class="general-Card">
-                    <section class="add-button" id="js--addOpdrachtBtn">
-                        <span>Vind een nieuwe opdracht</span>
-                    </section>
-                    <section>
+                    <h1>Hier kan je reageren op aanvragen</h1>
+                    <section class="alle-available-opdrachten column-information">
                         @foreach ($aanvragen as $aanvraag)
-                        <h1>Hello dit is een aanvraag voor {{$aanvraag->aanvraagHuisdier->naam}}</h1>
+                            @include('./components/non-breeze/reactie-card')
                         @endforeach
                     </section>
                 </section>

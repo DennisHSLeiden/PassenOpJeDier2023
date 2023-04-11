@@ -10,6 +10,7 @@ class Reactie extends Model
     use HasFactory;
 
     protected $table ="reactie";
+    protected $primaryKey = "reactie_id";
 
     public function reactieUser(){
         return $this->belongsTo('\App\Models\User',"email","email");

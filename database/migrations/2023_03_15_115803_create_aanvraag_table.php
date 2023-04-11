@@ -19,7 +19,8 @@ class CreateAanvraagTable extends Migration
                 $table->bigInteger('huisdier_id')->unsigned();
                 $table->string('wanneer');
                 $table->string('prijs');
-                $table->string('extra_informatie');
+                $table->string('extra_informatie')->nullable();
+                $table->boolean("beschikbaar")->default(TRUE);
                 $table->foreign('huisdier_id')->references('huisdier_id')->on('huisdier')->onDelete('cascade');
             });
         }

@@ -15,4 +15,6 @@
 
         <input type="submit" id="js--addHuisdierBtnSubmit" value="Voeg Huisdier toe">
     </form>
+    <input type="submit" class="addHuisdierCard__cancelBtn" id="js--cancelAddHuisdier" value="Cancel">
+
 </article> 
