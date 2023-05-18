@@ -10,6 +10,9 @@ class Aanvraag extends Model
     use HasFactory;
 
     protected $table ="aanvraag";
+    protected $primaryKey = "aanvraag_id";
+    protected $fillable =["huisdier_id", "wanneer", "prijs", "extra_informatie"];
+    public $timestamps = false;
 
     public function aanvraagHuisdier(){
         return $this->belongsTo('\App\Models\Huisdier',"huisdier_id","huisdier_id");

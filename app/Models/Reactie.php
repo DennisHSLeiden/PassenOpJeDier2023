@@ -11,6 +11,8 @@ class Reactie extends Model
 
     protected $table ="reactie";
     protected $primaryKey = "reactie_id";
+    protected $fillable =["email", "aanvraag_id", "comment"];
+    public $timestamps = false;
 
     public function reactieUser(){
         return $this->belongsTo('\App\Models\User',"email","email");

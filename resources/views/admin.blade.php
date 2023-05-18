@@ -39,9 +39,12 @@
             @foreach ($aanvragen as $aanvraag)
                 <section class="row-information admin-card">
                     @include('./components/non-breeze/aanvraag-card-admin')
-                    <section class="verwijder AdminButton">
-                        <a href="/admin/{{$aanvraag->aanvraag_id}}/verwijder">Verwijder</a>
-                    </section>
+
+                    <form action="/admin/{{$aanvraag->aanvraag_id}}/verwijder" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Verwijder</button>
+                    </form>
                 </section>
             @endforeach
         </section>

@@ -14,30 +14,41 @@ class ReactieController extends Controller
         
         $aanvraag_id = Aanvraag::where('aanvraag_id', $id)->first()->aanvraag_id;
 
-
-        DB::insert('insert into reactie (email, aanvraag_id, comment) values (?, ?, ?)',
-        [auth()->user()->email, $aanvraag_id, $request->input('comment'),]);
-
+        $reactie = New Reactie;
+        $reactie->email = auth()->user()->email;
+        $reactie->aanvraag_id = $aanvraag_id;
+        $reactie->comment = $request->input('comment');
+        $reactie->save();
         return redirect('/dashboard');
     }
 
-    public function Reageer(Request $request, $id){
+    public function Reageer(Request $request, $id)
+    {
         $id = $id;
         $aanvraag_id = Reactie::where('reactie_id', $id)->first()->aanvraag_id;
-        $alleAanvragen = Aanvraag::all();
-        if ($request->input('antwoord')){
-            foreach ($alleAanvragen as $aanvraag) {
-                DB::update('update reactie set antwoord = ? where aanvraag_id = ?', [FALSE ,$aanvraag_id]);
-            }
-            DB::update('update reactie set antwoord = ? where reactie_id = ?', [TRUE ,$id]);
-            DB::update('update aanvraag set beschikbaar = ? where aanvraag_id = ?', [FALSE, $aanvraag_id]);
+    
+        if ($request->input('antwoord')) {
+            Reactie::where('aanvraag_id', $aanvraag_id)
+                ->update(['antwoord' => false]);
+    
+            $reactie = Reactie::find($id);
+            $reactie->antwoord = true;
+            $reactie->save();
+    
+            $aanvraag = Aanvraag::find($aanvraag_id);
+            $aanvraag->beschikbaar = false;
+            $aanvraag->save();
+    
             return redirect('/dashboard');
         } else {
-            DB::update('update reactie set antwoord = ? where reactie_id = ?', [FALSE ,$id]);
+            $reactie = Reactie::find($id);
+            $reactie->antwoord = false;
+            $reactie->save();
+    
             return redirect()->back();
         }
-
     }
+    
 
     public function show($id) {
         $id = $id;

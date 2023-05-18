@@ -10,6 +10,9 @@ class Huisdier extends Model
     use HasFactory;
 
     protected $table ="huisdier";
+    protected $primaryKey = "huisdier_id";
+    protected $fillable =["email", "naam", "soort_id", "generieke_informatie"];
+    public $timestamps = false;
 
     public function huisdierUser(){
         return $this->belongsTo('\App\Models\User',"email","email");

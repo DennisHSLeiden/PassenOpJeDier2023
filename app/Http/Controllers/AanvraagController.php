@@ -23,11 +23,20 @@ class AanvraagController extends Controller
 
 
     public function addAanvraag(Request $request) {
-        
-        DB::insert('insert into aanvraag (huisdier_id, wanneer, prijs, extra_informatie) values (?, ?, ?, ?)',
-        [$request->input('huisdier_id'), $request->input('wanneer'), $request->input('prijs'), $request->input('extra_informatie')]);
+        $aanvraag = New Aanvraag;
+        $aanvraag->huisdier_id = $request->input('huisdier_id');
+        $aanvraag->wanneer = $request->input('wanneer');
+        $aanvraag->prijs = $request->input('prijs');
+        $aanvraag->extra_informatie = $request->input('extra_informatie');
+        $aanvraag->save();
 
         return redirect()->back();
+    }
 
+    public function verwijder($id) {
+        $id = $id;
+        $aanvraag = Aanvraag::find($id);
+        $aanvraag->delete();
+        return redirect()->back();
     }
 }

@@ -19,15 +19,25 @@ class ReactieTableSeeder extends Seeder
             'aanvraag_id' => '1', //Refereert naar Otso's aanvraag in AanvraagTableSeeder
             'comment' => 'Hoi! ik ben geintereseerd in het hondzitten van Otso, laat maar weten, groetjes',
         ]);
-        DB::table('reactie')->insert([ //id=1
+        DB::table('reactie')->insert([ //id=2
             'email' => 'dinosaur@gmail.com', //Refereert naar Dino in UserTableSeeder
             'aanvraag_id' => '1', //Refereert naar Otso's aanvraag in AanvraagTableSeeder
             'comment' => 'comment2',
         ]);
-        DB::table('reactie')->insert([ //id=1
+        DB::table('reactie')->insert([ //id=3
             'email' => 'dinosaur@gmail.com', //Refereert naar Dino in UserTableSeeder
             'aanvraag_id' => '1', //Refereert naar Otso's aanvraag in AanvraagTableSeeder
             'comment' => 'comment3',
+        ]);
+        DB::table('reactie')->insert([ //id=3
+            'email' => 'dennisleyting@gmail.com', //Refereert naar Dennis in UserTableSeeder
+            'aanvraag_id' => '3', //Refereert naar monster's aanvraag in AanvraagTableSeeder
+            'comment' => 'comment1',
+        ]);
+        DB::table('reactie')->insert([ //id=3
+            'email' => 'dennisleyting@gmail.com', //Refereert naar Dennis in UserTableSeeder
+            'aanvraag_id' => '4', //Refereert naar Cooper's aanvraag in AanvraagTableSeeder
+            'comment' => 'comment1',
         ]);
     }
 }

@@ -20,19 +20,19 @@ Route::get('/', function () {
 // Route::middleware(['auth', 'blocked'])->group(function(){
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@show')->middleware(['auth', 'blocked'])->name('dashboard');
 
-Route::post('/addHuisdier', 'App\Http\Controllers\AddHuisdierController@addHuisdier');
+Route::post('/addHuisdier', 'App\Http\Controllers\AddHuisdierController@addHuisdier')->middleware(['auth', 'blocked'])->name('dashboard');
 
-Route::post('/addAanvraag', 'App\Http\Controllers\AanvraagController@addAanvraag');
-Route::get('/aanvraag-details/{id}/', 'App\Http\Controllers\AanvraagController@show');
+Route::post('/addAanvraag', 'App\Http\Controllers\AanvraagController@addAanvraag')->middleware(['auth', 'blocked'])->name('dashboard');
+Route::get('/aanvraag-details/{id}/', 'App\Http\Controllers\AanvraagController@show')->middleware(['auth', 'blocked'])->name('dashboard');
 
 
-Route::get('/addReactie/{id}', 'App\Http\Controllers\ReactieController@show');
-Route::post('/addReactie/{id}/aanmaken', 'App\Http\Controllers\ReactieController@addReactie');
-Route::post('/reageer/{id}', 'App\Http\Controllers\ReactieController@Reageer');
+Route::get('/addReactie/{id}', 'App\Http\Controllers\ReactieController@show')->middleware(['auth', 'blocked'])->name('dashboard');
+Route::post('/addReactie/{id}/aanmaken', 'App\Http\Controllers\ReactieController@addReactie')->middleware(['auth', 'blocked'])->name('dashboard');
+Route::post('/reageer/{id}', 'App\Http\Controllers\ReactieController@Reageer')->middleware(['auth', 'blocked'])->name('dashboard');
 
-Route::get('/admin', 'App\Http\Controllers\AdminController@Show');
-Route::get('/admin/{id}/verwijder', 'App\Http\Controllers\AdminController@verwijder');
-Route::get('/admin/{email}/blokkeer', 'App\Http\Controllers\AdminController@blokkeer');
+Route::get('/admin', 'App\Http\Controllers\AdminController@Show')->middleware(['auth', 'blocked', 'admin'])->name('dashboard');
+Route::delete('/admin/{id}/verwijder', 'App\Http\Controllers\AanvraagController@verwijder')->middleware(['auth', 'blocked', 'admin'])->name('dashboard');
+Route::get('/admin/{email}/blokkeer', 'App\Http\Controllers\AdminController@blokkeer')->middleware(['auth', 'blocked', 'admin'])->name('dashboard');
 
 Route::get('/blocked', 'App\Http\Controllers\BlockController@show');
 
