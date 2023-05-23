@@ -19,6 +19,7 @@ class CreateReviewTable extends Migration
                 $table->string('email');
                 $table->bigInteger('huisdier_id')->unsigned();
                 $table->string('review');
+                $table->unsignedTinyInteger('rating')->unsigned()->between(1, 5);
                 $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
                 $table->foreign('huisdier_id')->references('huisdier_id')->on('huisdier')->onDelete('cascade');
             });
