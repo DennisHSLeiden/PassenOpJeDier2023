@@ -43,8 +43,8 @@ window.onload = () => {
         e.preventDefault();
 
         closeOverlay(addHuisdierOverlay);
-        addHuisdierForm.submit();     
-    });      
+        addHuisdierForm.submit();
+    });
 
 
 
@@ -67,16 +67,46 @@ window.onload = () => {
         e.preventDefault();
 
         closeOverlay(addAanvraagOverlay);
-        addAanvraagForm.submit();     
+        addAanvraagForm.submit();
     });
 
 
     const roleValue = document.getElementById("js--adminButton");
     var role = roleValue.dataset.role;
-    if (role === 'admin'){
+    if (role === 'admin') {
         roleValue.style.display = "block"
     }
 
-    
+
 }
-    
+
+function filterAanvragen() {
+    var checkboxes = document.querySelectorAll('#filterForm input[type="checkbox"]:checked');
+    var soorten = Array.from(checkboxes).map(function (checkbox) {
+        return checkbox.value;
+    });
+
+    var aanvragen = document.querySelectorAll('.reactie-card');
+
+    if (soorten.length === 0) {
+        aanvragen.forEach(function (aanvraag) {
+            aanvraag.style.display = 'block';
+        });
+        return;
+    }
+
+    aanvragen.forEach(function (aanvraag) {
+        var huisdierSoort = aanvraag.getAttribute('data-huisdier-soort');
+        if (soorten.includes(huisdierSoort)) {
+            aanvraag.style.display = 'block';
+        } else {
+            aanvraag.style.display = 'none';
+        }
+    });
+}
+
+function toggleDropdown() {
+    event.preventDefault();
+    var dropdown = document.querySelector('.dropdown');
+    dropdown.classList.toggle('open');
+}

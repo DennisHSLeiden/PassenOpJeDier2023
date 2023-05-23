@@ -1,5 +1,5 @@
 <article class="addHuisdierCard__overlay" id="js--addHuisdierOverlay">
-    <form action="addHuisdier" method="post" id="js--addHuisdierForm">
+    <form action="addHuisdier" method="post" id="js--addHuisdierForm" enctype="multipart/form-data">
     @csrf
 
         <label for="naam">Naam van je huisdier</label>
@@ -11,9 +11,10 @@
             <input type="radio" id="{{$soort->soort_id}}" name="soort_id" value="{{$soort->soort_id}}">
         @endforeach
 
-        
         <label for="generieke_informatie">Generieke informatie</label>
         <input type="text" name="generieke_informatie" placeholder="Bijvoorbeeld, slaapt elke dag om 8 uur">
+
+        <input type="file" name="foto" accept="image/*">
 
         <input type="submit" id="js--addHuisdierBtnSubmit" value="Voeg Huisdier toe">
     </form>

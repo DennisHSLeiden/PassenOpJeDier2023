@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             SoortenTableSeeder::class,
             HuisdierTableSeeder::class,
             // FotosHuisTableSeeder::class,
-            // FotosHuisdierTableSeeder::class,
+            FotosHuisdierTableSeeder::class,
             AanvraagTableSeeder::class,
             ReactieTableSeeder::class,
             ReviewTableSeeder::class

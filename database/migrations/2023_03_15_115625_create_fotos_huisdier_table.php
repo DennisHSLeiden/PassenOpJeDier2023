@@ -17,10 +17,10 @@ class CreateFotosHuisdierTable extends Migration
             Schema::create('fotos_huisdier', function (Blueprint $table) {
                 $table->bigIncrements('foto_huisdier_id');
                 $table->bigInteger('huisdier_id')->unsigned();
-                $table->string('titel');
-                $table->string('src');
-                $table->string('alt');
-                $table->string('beschrijving');
+                $table->string('filename');
+                $table->string('path');
+                // $table->string('alt');
+                // $table->string('beschrijving');
                 $table->foreign('huisdier_id')->references('huisdier_id')->on('huisdier')->onDelete('cascade');
             });
         }

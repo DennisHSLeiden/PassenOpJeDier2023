@@ -8,9 +8,9 @@
         <section class="row-information">
 
             <figure class="card-image">
-                <img src="/img/Cooper.jpg" alt="The dog cooper">
+                <img src="{{ asset($huisdier->allFotosHuisdier->first()->path . '/' . $huisdier->allFotosHuisdier->first()->filename) }}" >
             </figure>
-
+            
             <section class="column-information huisdier-card-information">
                 <h1>{{$huisdier->naam}}</h1>
                 <h1>{{$huisdier->huisdierSoort->soort}}</h1>

@@ -2,13 +2,13 @@
 <link rel="stylesheet" href="/css/reactie-card.css">
 @endpush
 
-<a href="/addReactie/{{$aanvraag->aanvraag_id}}" class="reactie-card button">
+<a href="/addReactie/{{$aanvraag->aanvraag_id}}" class="reactie-card button" data-huisdier-soort="{{$aanvraag->aanvraagHuisdier->huisdierSoort->soort}}">
     <section  class="Jouw-reactie-Card">
 
         <section class="row-information">
 
             <figure class="card-image">
-                <img src="/img/Cooper.jpg" alt="The dog cooper">
+               <img src="{{ asset('storage/img/'.'huisdier_' . $aanvraag->aanvraagHuisdier->huisdier_id . '_' . $aanvraag->aanvraagHuisdier->naam . '/' . $aanvraag->aanvraagHuisdier->allFotosHuisdier->first()->filename) }}">
             </figure>
 
             <section class="column-information reactie-card-information">

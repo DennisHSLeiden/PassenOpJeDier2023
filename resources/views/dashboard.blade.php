@@ -63,6 +63,24 @@
 
                 <section class="general-Card">
                     <h1 class="titel-aanvragen">Hier kan je reageren op aanvragen</h1>
+                    <form id="filterForm">
+                        <!-- <label>
+                            <input type="checkbox" name="soort" value="hond" onchange="filterAanvragen()"> Hond
+                        </label>
+                        <label>
+                            <input type="checkbox" name="soort" value="kat" onchange="filterAanvragen()"> Kat
+                        </label>
+                        Voeg hier andere mogelijke soorten checkboxes toe -->
+
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown()" class="dropdown-toggle">Filter Soort</button>
+                            <div id="checkboxes" class="checkboxes">
+                                <label><input type="checkbox" name="soort" value="hond" onchange="filterAanvragen()">Hond</label>
+                                <label><input type="checkbox" name="soort" value="kat" onchange="filterAanvragen()">Kat</label>
+                                <!-- Voeg hier andere checkboxen toe -->
+                            </div>
+                        </div>
+                    </form>
                     <section class="alle-available-opdrachten column-information">
                         @foreach ($aanvragen as $aanvraag)
                             @include('./components/non-breeze/reactie-card')

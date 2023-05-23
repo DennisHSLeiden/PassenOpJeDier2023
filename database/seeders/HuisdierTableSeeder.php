@@ -34,7 +34,7 @@ class HuisdierTableSeeder extends Seeder
         ]);
         DB::table('huisdier')->insert([ //id #4
             'email' => 'dinosaur@gmail.com', //Refereert naar dino in usertable
-            'naam' => 'monster',
+            'naam' => 'Monster',
             'soort_id' => '4',
             'generieke_informatie' => ''
         ]);
