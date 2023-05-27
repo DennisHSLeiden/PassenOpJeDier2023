@@ -14,7 +14,9 @@ class FotosHuisdier extends Model
     protected $fillable =["huisdier_id", "filename", "path"];
     public $timestamps = false;
 
-    public function fotos_huisdierHuisdier(){
-        return $this->belongsTo('\App\Models\Huisdier',"huisdier_id","huisdier_id");
+    public function fotosHuisdierHuisdier()
+    {
+        return $this->belongsTo(Huisdier::class, 'huisdier_id', 'huisdier_id');
     }
+    
 }

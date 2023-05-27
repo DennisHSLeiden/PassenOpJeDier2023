@@ -14,24 +14,30 @@ class Huisdier extends Model
     protected $fillable =["email", "naam", "soort_id", "generieke_informatie"];
     public $timestamps = false;
 
-    public function huisdierUser(){
-        return $this->belongsTo('\App\Models\User',"email","email");
+    public function huisdierUser()
+    {
+        return $this->belongsTo(User::class, 'email', 'email');
     }
-
-    public function huisdierSoort(){
-        return $this->belongsTo('\App\Models\Soort',"soort_id","soort_id");
+    
+    public function huisdierSoort()
+    {
+        return $this->belongsTo(Soort::class, 'soort_id', 'soort_id');
     }
-
-    public function allReviews(){
-        return $this->hasMany('\App\Models\Review',"huisdier_id","huisdier_id");
+    
+    public function allReviewsHuisdier()
+    {
+        return $this->hasMany(ReviewHuisdier::class, 'huisdier_id', 'huisdier_id');
     }
-
-    public function allAanvragen(){
-        return $this->hasMany('\App\Models\Aanvraag',"huisdier_id","huisdier_id");
+    
+    public function allAanvragen()
+    {
+        return $this->hasMany(Aanvraag::class, 'huisdier_id', 'huisdier_id');
     }
-
-    public function allFotosHuisdier(){
-        return $this->hasMany('\App\Models\FotosHuisdier',"huisdier_id","huisdier_id");
+    
+    public function allFotosHuisdier()
+    {
+        return $this->hasMany(FotosHuisdier::class, 'huisdier_id', 'huisdier_id');
     }
+    
 }
 

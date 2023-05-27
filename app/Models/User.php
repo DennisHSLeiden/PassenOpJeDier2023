@@ -44,25 +44,38 @@ class User extends Authenticatable
 
     protected $table ="users";
 
-
-    public function allFotosWoning(){
-        return $this->hasMany('\App\Models\FotosHuis',"email","email");
-        //return $this->hasMany('\App\Models\Foto',"foreignKey in woning","waar hij naar refereert in user")
+    public function allFotosHuis()
+    {
+        return $this->hasMany(FotosHuis::class, "email", "email");
     }
 
-    public function allReacties(){
-        return $this->hasMany('\App\Models\Reactie',"email","email");
+    public function allReacties()
+    {
+        return $this->hasMany(Reactie::class, "email", "email");
     }
 
-    public function allHuisdieren(){
-        return $this->hasMany('\App\Models\Huisdier',"email","email");
+    public function allHuisdieren()
+    {
+        return $this->hasMany(Huisdier::class, "email", "email");
     }
 
-    public function allReviews(){
-        return $this->hasMany('\App\Models\Review',"email","email");
+    public function allReviewsHuisdierGegeven()
+    {
+        return $this->hasMany(ReviewHuisdier::class, "email_van", "email");
     }
 
-    public function UserExtra_user_information(){
-        return $this->belongsTo('\App\Models\ExtraUserInformation',"email","email");
+    public function allReviewsOppasserGegeven()
+    {
+        return $this->hasMany(ReviewOppasser::class, "email_van", "email");
+    }
+
+    public function allReviewsOppasserGekregen()
+    {
+        return $this->hasMany(ReviewOppasser::class, "email_voor", "email");
+    }
+
+    public function UserExtra_user_information()
+    {
+        return $this->belongsTo(ExtraUserInformation::class, "email", "email");
     }
 }

@@ -39,7 +39,7 @@ class AddHuisdierController extends Controller
         $FotoHuisdier->path = $huisdierMapReference;
         $FotoHuisdier->save();
 
-        return redirect()->back()->with('success', 'Je huisdier is succesvol toegevoegd!.');
+        return redirect()->back();
         // return redirect()->back();
 
     }

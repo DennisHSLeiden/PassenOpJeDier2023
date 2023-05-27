@@ -16,8 +16,8 @@ class CreateReactieTable extends Migration
         if(!Schema::hasTable('reactie')){
             Schema::create('reactie', function (Blueprint $table) {
                 $table->bigIncrements('reactie_id');
-                $table->string('email');
-                $table->bigInteger('aanvraag_id')->unsigned();
+                $table->string('email'); /** wie reageerd */
+                $table->bigInteger('aanvraag_id')->unsigned(); /** op welke aanvraag */
                 $table->string('comment');
                 $table->boolean('antwoord')->nullable();
                 $table->foreign('email')->references('email')->on('users')->onDelete('cascade');

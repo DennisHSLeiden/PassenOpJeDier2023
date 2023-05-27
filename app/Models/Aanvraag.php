@@ -14,12 +14,15 @@ class Aanvraag extends Model
     protected $fillable =["huisdier_id", "wanneer", "prijs", "extra_informatie"];
     public $timestamps = false;
 
-    public function aanvraagHuisdier(){
-        return $this->belongsTo('\App\Models\Huisdier',"huisdier_id","huisdier_id");
+    public function aanvraagHuisdier()
+    {
+        return $this->belongsTo(Huisdier::class, 'huisdier_id', 'huisdier_id');
     }
-
-    public function allReacties(){
-        return $this->hasMany('\App\Models\Reactie',"aanvraag_id","aanvraag_id");
+    
+    public function allReacties()
+    {
+        return $this->hasMany(Reactie::class, 'aanvraag_id', 'aanvraag_id');
     }
+    
 }
 

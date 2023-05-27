@@ -11,7 +11,9 @@ class Soort extends Model
 
     protected $table ="soorten";
 
-    public function allHuisdieren(){
-        return $this->hasMany('\App\Models\Huisdier',"soort_id","soort_id");
+    public function allHuisdieren()
+    {
+        return $this->hasMany(Huisdier::class, 'soort_id', 'soort_id');
     }
+    
 }

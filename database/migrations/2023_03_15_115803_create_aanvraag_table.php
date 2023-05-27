@@ -21,7 +21,9 @@ class CreateAanvraagTable extends Migration
                 $table->string('prijs');
                 $table->string('extra_informatie')->nullable();
                 $table->boolean("beschikbaar")->default(TRUE);
+                $table->string('email_oppasser')->nullable()->default(null);
                 $table->foreign('huisdier_id')->references('huisdier_id')->on('huisdier')->onDelete('cascade');
+                $table->foreign('email_oppasser')->references('email')->on('users')->onDelete('cascade');
             });
         }
     }
@@ -33,8 +35,12 @@ class CreateAanvraagTable extends Migration
      */
     public function down()
     {
-        Schema::table('aanvraag', function (Blueprint $table){
+        Schema::table('aanvraag', function (Blueprint $table) {
             $table->dropForeign('aanvraag_huisdier_id_foreign');
+            $table->dropForeign('aanvraag_email_foreign');
         });
+    
+        Schema::dropIfExists('aanvraag');
     }
+    
 }

@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
             FotosHuisdierTableSeeder::class,
             AanvraagTableSeeder::class,
             ReactieTableSeeder::class,
-            ReviewTableSeeder::class
+            ReviewHuisdierTableSeeder::class,
+            ReviewOppasserTableSeeder::class
+
         ]);
     }
 }

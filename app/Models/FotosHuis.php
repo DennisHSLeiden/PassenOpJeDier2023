@@ -11,7 +11,9 @@ class FotosHuis extends Model
 
     protected $table ="fotos_huis";
 
-    public function fotos_huisUser(){
-        return $this->belongsTo('\App\Models\User',"email","email");
+    public function fotosHuisUser()
+    {
+        return $this->belongsTo(User::class, 'email', 'email');
     }
+    
 }

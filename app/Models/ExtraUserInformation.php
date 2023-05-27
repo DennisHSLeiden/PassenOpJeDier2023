@@ -11,7 +11,9 @@ class ExtraUserInformation extends Model
 
     protected $table ="extra_user_information";
 
-    public function extra_user_informationUser(){
-        return $this->belongsTo('\App\Models\User',"email","email");
+    public function extraUserInformation()
+    {
+        return $this->belongsTo(User::class, 'email', 'email');
     }
+    
 }

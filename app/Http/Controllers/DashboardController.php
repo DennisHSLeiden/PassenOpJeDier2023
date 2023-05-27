@@ -8,6 +8,10 @@ use App\Models\Huisdier;
 use App\Models\User;
 use App\Models\Reactie;
 use App\Models\Soort;
+use App\Models\ReviewOppasser;
+use App\Models\ReviewHuisdier;
+
+
 
 
 class DashboardController extends Controller
@@ -60,6 +64,11 @@ class DashboardController extends Controller
 
         $role = User::where('email', $currentUserEmail)->first()->role;
 
+        $reviewsAlsHuisdierEigenaarGegeven = ReviewOppasser::where('email_van', $currentUserEmail)->get();
+        $ReviewsAlsOppasGekregen = ReviewOppasser::where('email_voor', $currentUserEmail)->get();
+        $ReviewsAlsOppasGegeven = ReviewHuisdier::where('email_van', $currentUserEmail)->get();
+
+
     
         return view('dashboard',[
             'huisdieren'=> $huisdieren,
@@ -67,7 +76,10 @@ class DashboardController extends Controller
             'eigen_aanvragen'=> $eigen_aanvragen,
             'aanvragen' => $aanvragen,
             'reacties' => $reacties,
-            'role' => $role
+            'role' => $role,
+            'reviewsAlsHuisdierEigenaarGegeven' => $reviewsAlsHuisdierEigenaarGegeven,
+            'ReviewsAlsOppasGekregen' => $ReviewsAlsOppasGekregen,
+            'ReviewsAlsOppasGegeven' => $ReviewsAlsOppasGegeven,
         ]);
     }
 }

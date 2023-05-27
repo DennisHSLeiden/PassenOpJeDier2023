@@ -89,7 +89,21 @@
                 </section>
 
                 <section class="general-Card">
-                    <h1> Hier komen de huisdieren waar je nog een review op kan plaatsen </h1>
+                    <h1> Dit is de plek waar je reviews kan plaatsen op oppassers of huisdieren </h1>
+                    @foreach ($ReviewsAlsOppasGegeven as $review)
+                        @if (!$review->rating)
+                            <button>
+                                <a href ='reviewHuisdier/{{$review->review_huisdier_id}}'>Geef een review aan {{$review->reviewHuisdierAanvraag()->first()->aanvraagHuisdier()->first()->naam}} </a>
+                            </button>
+                        @endif
+                    @endforeach
+                    @foreach ($reviewsAlsHuisdierEigenaarGegeven as $review)
+                        @if (!$review->rating)
+                            <button>
+                                <a href ='reviewOppasser/{{$review->review_oppasser_id}}'>Geef een review aan {{$review->reviewOppasserAanvraag()->first()->email_oppasser}} </a>
+                            </button>
+                        @endif
+                    @endforeach
                 </section>
 
             </section>

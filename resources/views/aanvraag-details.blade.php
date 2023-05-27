@@ -15,7 +15,7 @@
                 <section>
                     <p> {{$reactie->comment}} </p>
                 
-                    <form action="../reageer/{{$reactie->reactie_id}}" method="post" id="js--reageer">
+                    <form action="../reageer/{{$reactie->reactie_id}}" method="POST" id="js--reageer">
                     @csrf
 
                         <label for="True">Oppas Aannemen</label><br>
