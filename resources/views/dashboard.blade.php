@@ -72,7 +72,7 @@
 
         <section class="general-card">
             <section class='general-card-header'>
-                <h1> Dit is de plek waar je reviews kan plaatsen op oppassers of huisdieren </h1>
+                <h1> Hier heb je de kans om Reviews te plaatsen </h1>
             </section>
             <section class='general-card-header'>
                 @foreach ($ReviewsAlsOppasGegeven as $review)

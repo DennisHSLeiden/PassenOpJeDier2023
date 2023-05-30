@@ -54,6 +54,20 @@ class AanvraagTableSeeder extends Seeder
             'wanneer' => 'Gisteren',
             'prijs' => '30 euro per dag',
         ]);
+        DB::table('aanvraag')->insert([//id = 7
+            'huisdier_id' => '2', //Refereert naar Cooper in HuisdierTableSeeder
+            'wanneer' => 'Gisteren',
+            'prijs' => '30 euro per dag',
+            'beschikbaar' => false,
+            'email_oppasser' => 'dennisleyting@gmail.com'
+        ]);
+        DB::table('aanvraag')->insert([//id = 8
+            'huisdier_id' => '3', //Refereert naar Cooper in HuisdierTableSeeder
+            'wanneer' => 'Gisteren',
+            'prijs' => '30 euro per dag',
+            'beschikbaar' => false,
+            'email_oppasser' => 'dennisleyting@gmail.com'
+        ]);
 
 
         

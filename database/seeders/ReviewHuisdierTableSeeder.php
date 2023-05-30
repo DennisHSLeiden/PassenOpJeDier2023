@@ -22,10 +22,26 @@ class ReviewHuisdierTableSeeder extends Seeder
             'rating' => 5
         ]);
 
-        DB::table('review_huisdier')->insert([ //id=1
+        DB::table('review_huisdier')->insert([ //id=2
             'aanvraag_id' => '2',
             'email_van' => 'dennisleyting@gmail.com', //Refereert naar Dino in usertable
             'huisdier_id' => '2',  //Refereert naar Otso in HuisdierTableSeeder
+        ]);
+
+        DB::table('review_huisdier')->insert([ //id=3
+            'aanvraag_id' => '7',
+            'email_van' => 'dinosaur@gmail.com', //Refereert naar Dino in usertable
+            'huisdier_id' => '2',  //Refereert naar Otso in HuisdierTableSeeder
+            'review' => 'hier staat een geweldige review!',
+            'rating' => 5
+        ]);
+
+        DB::table('review_huisdier')->insert([ //id=4
+            'aanvraag_id' => '8',
+            'email_van' => 'dinosaur@gmail.com', //Refereert naar Dino in usertable
+            'huisdier_id' => '3',  //Refereert naar Otso in HuisdierTableSeeder
+            'review' => 'hier staat een geweldige review!',
+            'rating' => 4
         ]);
     }
 }

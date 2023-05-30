@@ -38,9 +38,19 @@
 }
 
 .card-button {
-    width: 100%;
-    /* Knopstijlen */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #337ab7;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
 }
+
+.card-button:hover {
+    background-color: #23527c;
+}
+
 
 .slideshow-container {
     position: relative;
@@ -50,15 +60,6 @@
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
-
-
-/* .slide {
-    display: none;
-    flex-shrink: 0;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-} */
 
 .slide {
     flex-shrink: 0;
@@ -82,8 +83,6 @@
     transform: translateX(-100%);
 }
 
-
-
 .prev,
 .next {
     position: absolute;
@@ -105,4 +104,167 @@
 .next {
     right: 0;
     /* Aanpassen naar de gewenste afstand vanaf de rechterkant */
+}
+
+/* .reviews-container {
+    display: none;
+} */
+
+/* overlay shit */
+
+
+form.addhuisdieroverlay {
+    margin: 3rem auto;
+    width: 400px;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.form-control input {
+    font: inherit;
+    padding: 0.25rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    display: block;
+    width: 95%;
+}
+
+.form-control input:focus {
+    border-color: #1f0050;
+    outline: none;
+    background-color: #f4eeff;
+}
+
+.form-control label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.soorten-container {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.add-huisdier-overlay-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.add-huisdier-overlay-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.add-huisdier-overlay-container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.add-huisdier-overlay-container input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.add-huisdier-overlay-container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.add-huisdier-overlay-container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.btn {
+    width: 200px;
+}
+
+/*
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.submit-btn,
+.cancel-btn {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #ccc;
+    margin-left: 10px;
+} */
+
+.content {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    /* Pas de waarde aan op basis van de hoogte van de footer */
+}
+
+.review-card {
+    min-width: 350px;
+    max-width: 620px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }

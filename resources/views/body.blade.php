@@ -3,8 +3,8 @@
 
 <body>
     @include('./components/non-breeze/header')
-    @include('./components/non-breeze/footer')
     @yield('content')
+    @include('./components/non-breeze/footer')
 </body>
     
 @endsection

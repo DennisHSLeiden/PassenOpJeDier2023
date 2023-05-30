@@ -15,16 +15,16 @@
 
 
 <main class="content">
-    <section class="add-button" id="js--addHuisdierBtn">
-        <span>Voeg Nieuw Huisdier Toe</span>
+    <section class= "frontPageHuisdieren">
+        @foreach ($huisdieren as $huisdier)
+        @include('./components/non-breeze/huisdier-card')
+        @endforeach
+    
+        <section class="add-huisdier-button" id="js--addHuisdierBtn">
+            <span>Voeg Nieuw Huisdier Toe</span>
+        </section>
+        @include('./components/non-breeze/add_huisdier_overlay')
     </section>
-    @include('./components/non-breeze/add_huisdier_overlay')
-
-    @foreach ($huisdieren as $huisdier)
-    @include('./components/non-breeze/huisdier-card')
-    @endforeach
-
-
 </main>
 
 @endsection
