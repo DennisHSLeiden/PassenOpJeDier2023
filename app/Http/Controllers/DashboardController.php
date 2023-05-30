@@ -59,24 +59,39 @@ class DashboardController extends Controller
                 }
             }
         }
-        $huisdieren = User::where('email', $currentUserEmail)->first()->allHuisdieren;
         $soorten = Soort::all();
-
+        
         $role = User::where('email', $currentUserEmail)->first()->role;
-
+        
         $reviewsAlsHuisdierEigenaarGegeven = ReviewOppasser::where('email_van', $currentUserEmail)->get();
         $ReviewsAlsOppasGekregen = ReviewOppasser::where('email_voor', $currentUserEmail)->get();
         $ReviewsAlsOppasGegeven = ReviewHuisdier::where('email_van', $currentUserEmail)->get();
+        $huisdieren = User::where('email', $currentUserEmail)->first()->allHuisdieren;
+
+        
+        //HuisdierBenodigdheden
+        $eersteHuisdier = User::where('email', $currentUserEmail)->first()->allHuisdieren->first();
+        $padVoorFoto = $eersteHuisdier->allFotosHuisdier()->first()->path;
+        $naamVanFoto = $eersteHuisdier->allFotosHuisdier()->first()->filename;
 
 
     
         return view('dashboard',[
-            'huisdieren'=> $huisdieren,
-            'soorten' => $soorten,
+            //Generieke Benodigdheden
+            'role' => $role,
             'eigen_aanvragen'=> $eigen_aanvragen,
+            // HuisdierBenodigdheden
+            'eersteHuisdier'=> $eersteHuisdier,
+            'padVoorFoto' => $padVoorFoto,
+            'naamVanFoto' => $naamVanFoto,
+
+
+            'huisdieren' => $huisdieren,
+            'soorten' => $soorten,
+
+            'currentUserEmail'=> $currentUserEmail,
             'aanvragen' => $aanvragen,
             'reacties' => $reacties,
-            'role' => $role,
             'reviewsAlsHuisdierEigenaarGegeven' => $reviewsAlsHuisdierEigenaarGegeven,
             'ReviewsAlsOppasGekregen' => $ReviewsAlsOppasGekregen,
             'ReviewsAlsOppasGegeven' => $ReviewsAlsOppasGegeven,

@@ -20,7 +20,9 @@ Route::get('/', function () {
 // Route::middleware(['auth', 'blocked'])->group(function(){
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@show')->middleware(['auth', 'blocked'])->name('dashboard');
 
-Route::post('/addHuisdier', 'App\Http\Controllers\AddHuisdierController@addHuisdier')->middleware(['auth', 'blocked']);
+Route::get('/mijnHuisdieren/{email}', 'App\Http\Controllers\HuisdierController@show')->middleware(['auth', 'blocked']);
+
+Route::post('/mijnHuisdieren/addHuisdier', 'App\Http\Controllers\HuisdierController@addHuisdier')->middleware(['auth', 'blocked']);
 
 Route::post('/addAanvraag', 'App\Http\Controllers\AanvraagController@addAanvraag')->middleware(['auth', 'blocked']);
 Route::get('/aanvraag-details/{id}/', 'App\Http\Controllers\AanvraagController@show')->middleware(['auth', 'blocked']);
@@ -37,8 +39,6 @@ Route::post('/reviewHuisdier/{id}/geven', 'App\Http\Controllers\ReviewController
 
 Route::get('/reviewOppasser/{email}', 'App\Http\Controllers\ReviewController@showOppasser')->middleware(['auth', 'blocked']);
 Route::post('/reviewOppasser/{email}/geven', 'App\Http\Controllers\ReviewController@reviewOppasserGeven')->middleware(['auth', 'blocked']);
-
-
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@Show')->middleware(['auth', 'blocked', 'admin']);
 Route::delete('/admin/{id}/verwijder', 'App\Http\Controllers\AanvraagController@verwijder')->middleware(['auth', 'blocked', 'admin']);

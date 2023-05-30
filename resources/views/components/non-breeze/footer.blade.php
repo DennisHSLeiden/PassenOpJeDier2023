@@ -1,4 +1,4 @@
-<footer class="footerNav">
+<footer>
     <p class='brought-by'> Brought to you by JAD developement </p>
     <!-- <nav>
         <ul>

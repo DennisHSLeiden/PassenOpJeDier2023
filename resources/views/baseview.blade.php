@@ -8,6 +8,7 @@
 
         <link rel="stylesheet" href="/css/style.css">
         @stack('css')
+        @stack('js')
         <script src="/js/main.js"></script>
     
         <!-- google font

@@ -4,6 +4,11 @@
 
 @extends('body')
 @section('content')
+
+@push('css')
+<link rel="stylesheet" href="/css/login.css">
+@endpush
+
 <main class="content">
 
         <!-- Session Status -->
@@ -14,42 +19,49 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
+        <section class='form-control'>
         <!-- Email Address -->
-        <section>
-            <x-label for="email" :value="__('Email')" />
+            <section>
+                <x-label for="email" :value="__('Email')" />
 
-            <x-input id="email" type="email" name="email" :value="old('email')" required autofocus />
-        </section>
+                <x-input id="email" type="email" name="email" :value="old('email')" required autofocus />
+            </section>
 
-        <!-- Password -->
-        <section class="mt-4">
-            <x-label for="password" :value="__('Password')" />
+            <!-- Password -->
+            <section class="mt-4">
+                <x-label for="password" :value="__('Password')" />
 
-            <x-input id="password"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-        </section>
+                <x-input id="password"
+                                type="password"
+                                name="password"
+                                required autocomplete="current-password" />
+            </section>
 
-        <!-- Remember Me -->
-        <section>
-            <label for="remember_me" class="inline-flex items-center">
+            <!-- Remember Me -->
+            <!-- <section class="remember-me">
                 <input id="remember_me" type="checkbox" name="remember">
-                <span>{{ __('Remember me') }}</span>
-            </label>
-        </section>
+                <label for="remember_me">{{ __('Remember me') }}</label>
+            </section> -->
 
-        <section>
-            @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}">
+            <section class='container_wrap'>
+                <label class="container"> {{ __('Remember me') }}
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </section>
+
+            <section class="form-actions">
+                @if (Route::has('password.request'))
+                    <a href="{{ route('password.request') }}" class="forgot-password">
                     {{ __('Forgot your password?') }}
-                </a>
-            @endif
+                    </a>
+                @endif
 
-            <x-button>
-                {{ __('Log in') }}
-            </x-button>
+                <x-button class="login-button">
+                    {{ __('Log in') }}
+                </x-button>
+            </section>
+
         </section>
     </form>
 

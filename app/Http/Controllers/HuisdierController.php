@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Huisdier;
-use App\Models\User;
 use App\Models\FotosHuisdier;
+use App\Models\User;
+use App\Models\Soort;
 
 
-
-class AddHuisdierController extends Controller
+class HuisdierController extends Controller
 {
     public function addHuisdier(Request $request) {
         $huisdier = New Huisdier;
@@ -46,12 +46,21 @@ class AddHuisdierController extends Controller
     }
 
     public function show($email){
-        $email = $email;
+
         $gebruiker = User::where('email', $email)->first();
+
         $huisdieren = $gebruiker->allHuisdieren()->get();
 
+        $soorten = Soort::all();
+        
+        $role = $gebruiker->role;
+        
+
+
         return view('mijn-huisdieren',[
-            'huisdieren' => $huisdieren
+            "huisdieren" => $huisdieren,
+            "role" => $role,
+            "soorten" => $soorten,
         ]);
     }
 }
