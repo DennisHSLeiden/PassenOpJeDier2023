@@ -1,18 +1,18 @@
-<article class="overlay addHuisdierCard__overlay" id="js--addHuisdierOverlay">
-  <form class="addhuisdieroverlay"action="addHuisdier" method="post" id="js--addHuisdierForm" enctype="multipart/form-data">
+<article class="addHuisdierCard__overlay" id="js--addHuisdierOverlay">
+  <form class="addhuisdieroverlay" action="mijnHuisdieren/addHuisdier" method="post" id="js--addHuisdierForm" enctype="multipart/form-data">
     @csrf
-    <section  class="form-control">
+    <section class="form-control">
       <label for="naam">Naam van je huisdier</label>
       <input type="text" name="naam" placeholder="Geef hier de naam van je huisdier">
 
-      <h1> wat voor soort is je huisdier?</h1>
+      <h1>Wat voor soort is je huisdier?</h1>
       <section class="soorten-container">
-      @foreach ($soorten as $soort)
-        <label for="soort_id" class="add-huisdier-overlay-container">{{$soort->soort}}
+        @foreach ($soorten as $soort)
+          <label class="add-huisdier-overlay-container">{{$soort->soort}}
             <input type="radio" id="{{$soort->soort_id}}" name="soort_id" value="{{$soort->soort_id}}">
             <span class="checkmark"></span>
-        </label>
-      @endforeach
+          </label>
+        @endforeach
       </section>
 
       <label for="generieke_informatie">Generieke informatie</label>

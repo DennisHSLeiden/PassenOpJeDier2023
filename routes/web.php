@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,9 +21,20 @@ Route::get('/', function () {
 // Route::middleware(['auth', 'blocked'])->group(function(){
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@show')->middleware(['auth', 'blocked'])->name('dashboard');
 
-Route::get('/mijnHuisdieren/{email}', 'App\Http\Controllers\HuisdierController@show')->middleware(['auth', 'blocked']);
+Route::get('/mijnHuisdieren', 'App\Http\Controllers\HuisdierController@show')->middleware(['auth', 'blocked']);
 
 Route::post('/mijnHuisdieren/addHuisdier', 'App\Http\Controllers\HuisdierController@addHuisdier')->middleware(['auth', 'blocked']);
+Route::post('/mijnHuisdieren/voegFotoToe/{id}', 'App\Http\Controllers\HuisdierController@voegFotoToe')->middleware(['auth', 'blocked']);
+
+// Route::get('/profiel/{email}', 'App\Http\Controllers\profielController@show')->middleware(['auth', 'blocked']);
+Route::get('profiel/{email}', 'App\Http\Controllers\ProfielController@show')->name('extrauserinformation.show')->middleware(['auth', 'blocked']);
+Route::get('profiel/{email}/edit', 'App\Http\Controllers\ProfielController@edit')->name('extrauserinformation.edit')->middleware(['auth', 'blocked']);
+Route::put('profiel/{email}/edit', 'App\Http\Controllers\ProfielController@update')->name('extrauserinformation.update')->middleware(['auth', 'blocked']);
+
+Route::post('profiel/edit/foto_persoon', 'App\Http\Controllers\ProfielController@uploadPersoonPhoto')->name('upload.photo.persoon');
+
+
+Route::post('profiel/edit/foto_woning', 'App\Http\Controllers\ProfielController@uploadWoningPhoto')->name('upload.photo.woning');
 
 Route::post('/addAanvraag', 'App\Http\Controllers\AanvraagController@addAanvraag')->middleware(['auth', 'blocked']);
 Route::get('/aanvraag-details/{id}/', 'App\Http\Controllers\AanvraagController@show')->middleware(['auth', 'blocked']);

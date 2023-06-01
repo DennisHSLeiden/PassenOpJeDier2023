@@ -12,18 +12,21 @@ class CreateExtraUserInformationTable extends Migration
      * @return void
      */
     public function up()
-    {
+    { 
         if(!Schema::hasTable('extra_user_information')){
             Schema::create('extra_user_information', function (Blueprint $table) {
+                $table->bigIncrements('extra_user_information_id');
                 $table->string('email');
-                $table->string('voornaam');
-                $table->string('tussenvoegsel')->nullable();
-                $table->string('achternaam');
-                $table->string('telefoonnummer')->unique();
-                $table->date('geboortedatum');
-                $table->string('woonplaats');
-                $table->string('straat');
-                $table->string('huisnummer');
+                $table->string('voornaam')->nullable()->default(null);
+                $table->string('tussenvoegsel')->nullable()->default(null);
+                $table->string('achternaam')->nullable()->default(null);
+                $table->date('geboortedatum')->nullable()->default(null);
+                $table->string('path')->nullable()->default(null);
+                $table->string('filename')->nullable()->default(null);
+                $table->string('telefoonnummer')->unique()->nullable()->default(null);
+                $table->string('woonplaats')->nullable()->default(null);
+                $table->string('straat')->nullable()->default(null);
+                $table->string('huisnummer')->nullable()->default(null);
                 $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
 
             });

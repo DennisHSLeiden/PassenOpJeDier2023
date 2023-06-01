@@ -13,6 +13,7 @@ use App\Models\Soort;
 class HuisdierController extends Controller
 {
     public function addHuisdier(Request $request) {
+        $gebruiker =  auth()->user()->email;
         $huisdier = New Huisdier;
         $huisdier->email = auth()->user()->email;
         $huisdier->naam = $request->input('naam');
@@ -28,8 +29,8 @@ class HuisdierController extends Controller
 
         $huisdierMetID = Huisdier::all()->last();
 
-        $huisdierMapStore = 'public/img/huisdier_' . $huisdierMetID->huisdier_id . '_' . $huisdierMetID->naam;
-        $huisdierMapReference = 'storage/img/huisdier_' . $huisdierMetID->huisdier_id . '_' . $huisdierMetID->naam;
+        $huisdierMapStore = 'public/img/'. $gebruiker . '/huisdieren/'. $huisdierMetID->naam;
+        $huisdierMapReference = 'storage/img/'.$gebruiker. '/huisdieren/' . $huisdierMetID->naam;
 
 
         $path = $foto->store($huisdierMapStore);
@@ -45,9 +46,36 @@ class HuisdierController extends Controller
 
     }
 
-    public function show($email){
+    public function voegFotoToe(Request $request, $id){
+        $gebruiker =  auth()->user()->email;
+        $huisdier_id = $id;
+        $huisdier = Huisdier::find($huisdier_id);
+        $nieuweFotoHuisdier = new FotosHuisdier;
+        $nieuweFotoHuisdier->huisdier_id = $huisdier_id;
 
-        $gebruiker = User::where('email', $email)->first();
+        $request->validate([
+            'foto' => 'required|image|max:2048', // Valideer het geüploade bestand als een afbeelding (maximaal 2 MB)
+        ]);
+    
+        $foto = $request->file('foto');
+
+        $huisdierMapStore = 'public/img/'. $gebruiker . '/huisdieren/'. $huisdier->naam;
+        $huisdierMapReference = 'storage/img/'.$gebruiker. '/huisdieren/' . $huisdier->naam;
+
+
+        $path = $foto->store($huisdierMapStore);
+        // Voeg de foto ook toe aan de database
+        $nieuweFotoHuisdier->filename = $foto->hashName();
+        $nieuweFotoHuisdier->path = $huisdierMapReference;
+        $nieuweFotoHuisdier->save();
+        return redirect()->back();
+
+    }
+
+    public function show(){
+
+        $gebruiker = auth()->user();
+        $gebruikerEmail = $gebruiker->email;
 
         $huisdieren = $gebruiker->allHuisdieren()->get();
 
@@ -58,6 +86,7 @@ class HuisdierController extends Controller
 
 
         return view('mijn-huisdieren',[
+            "gebruikerEmail" => $gebruikerEmail,
             "huisdieren" => $huisdieren,
             "role" => $role,
             "soorten" => $soorten,

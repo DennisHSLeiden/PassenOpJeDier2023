@@ -15,13 +15,19 @@ class FotosHuisTableSeeder extends Seeder
     public function run()
     {
         DB::table('fotos_huis')->insert([ // id =1
-            // \Ramsey\Uuid\Uuid::uuid4()->toString()
-            'email' => 'dennisleyting@gmail.com', //Refereert naar Dennis in usertable
-            'titel' => 'Futuristisch huis',
-            'src' => 'public\img\FuturistischHuis.jpg',
-            'alt' => 'Een Futuristisch huis',
-            'beschrijving' => 'Een Futuristisch huis. Je kan hier ook zien dat wij een grote tuin hebben'
-
+            'email' => 'dinosaur@gmail.com',
+            'path' => 'storage/img/dinosaur@gmail.com/woning fotos',
+            'filename'=> 'FuturistischHuis.jpg',
+        ]);
+        DB::table('fotos_huis')->insert([ // id =2
+            'email' => 'dinosaur@gmail.com',
+            'path' => 'storage/img/dinosaur@gmail.com/woning fotos',
+            'filename'=> 'huis1.jpg',
+        ]);
+        DB::table('fotos_huis')->insert([ // id =3
+            'email' => 'dinosaur@gmail.com',
+            'path' => 'storage/img/dinosaur@gmail.com/woning fotos',
+            'filename'=> 'huis2.jpg',
         ]);
     }
 }

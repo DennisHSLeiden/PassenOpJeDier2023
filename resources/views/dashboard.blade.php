@@ -14,6 +14,31 @@
     
     <section class="card-container">
         
+        <section class="general-card persoon-card">
+            <section class='huisdier-card-indeler'>
+                <section class="square-photo">
+                @if (empty($currentUser->UserExtra_user_information()->first()->path))
+                    <img src="/storage/img/no-picture/Profile_avatar_placeholder_large.png" alt="Placeholder foto">
+                @else
+                    <img src="{{$currentUser->UserExtra_user_information()->first()->path}}/{{$currentUser->UserExtra_user_information()->first()->filename}}" alt="Profiel foto">
+                @endif
+
+                </section>
+
+                <section class='indeling-rechts'>
+                    <section class='general-card-header'>
+                        <a href="/profiel/{{$currentUserEmail}}" class="arrow-button">
+                            Mijn Profiel
+                            <span class="arrow">&#9658;</span>
+                        </a>
+                    </section>
+                    <section class='general-card-content'>
+                        <!-- Content -->
+                    </section>
+                </section>
+            </section>
+        </section>
+        
         <section class="general-card">
             <section class='general-card-header'>
                 <section class="add-button" id="js--addAanvraagBtn">
@@ -25,12 +50,6 @@
                 @foreach ($eigen_aanvragen as $eigen_aanvraag)
                 @include('./components/non-breeze/aanvraag-card')
                 @endforeach
-            </section>
-        </section>
-        
-        <section class="general-card">
-            <section class='general-card-header'>
-                <h1 class="titel-aanvragen">Hier kan je reageren op aanvragen</h1>
             </section>
             <form id="filterForm">
                 <section class="dropdown">
@@ -48,6 +67,7 @@
                 @endforeach -->
             </section>
         </section>
+        
 
 
         <section class="general-card huisdier-card">
@@ -57,7 +77,7 @@
                 </section>
                 <section class='indeling-rechts'>
                     <section class='general-card-header'>
-                        <a href="mijnHuisdieren/{{$currentUserEmail}}" class="arrow-button">
+                        <a href="mijnHuisdieren" class="arrow-button">
                             Mijn Huisdieren
                             <span class="arrow">&#9658;</span>
                         </a>

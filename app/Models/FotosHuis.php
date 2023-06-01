@@ -10,6 +10,9 @@ class FotosHuis extends Model
     use HasFactory;
 
     protected $table ="fotos_huis";
+    protected $primaryKey = "foto_huis_id";
+    protected $fillable =["email", "path", "filename"];
+    public $timestamps = false;
 
     public function fotosHuisUser()
     {

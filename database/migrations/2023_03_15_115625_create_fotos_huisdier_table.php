@@ -19,8 +19,6 @@ class CreateFotosHuisdierTable extends Migration
                 $table->bigInteger('huisdier_id')->unsigned();
                 $table->string('filename');
                 $table->string('path');
-                // $table->string('alt');
-                // $table->string('beschrijving');
                 $table->foreign('huisdier_id')->references('huisdier_id')->on('huisdier')->onDelete('cascade');
             });
         }

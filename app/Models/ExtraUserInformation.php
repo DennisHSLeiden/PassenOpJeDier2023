@@ -10,6 +10,9 @@ class ExtraUserInformation extends Model
     use HasFactory;
 
     protected $table ="extra_user_information";
+    protected $primaryKey = "extra_user_information_id";
+    protected $fillable =["email", "voornaam", "tussenvoegsel", "achternaam", "geboortedatum", "path", "filename", "telefoonnummer", "woonplaats", "straat", "huisnummer"];
+    public $timestamps = false;
 
     public function extraUserInformation()
     {

@@ -19,7 +19,8 @@ class DashboardController extends Controller
     public function show(){
 
         //om al je eigen shit te vinden
-        $currentUserEmail = auth()->user()->email;
+        $currentUser = auth()->user();
+        $currentUserEmail = $currentUser ->email;
         //all je eigen huisdieren
         $huisdieren = User::where('email', $currentUserEmail)->first()->allHuisdieren;
         //alle eigen_aanvragen die je voor je huisdieren hebt
@@ -79,17 +80,18 @@ class DashboardController extends Controller
         return view('dashboard',[
             //Generieke Benodigdheden
             'role' => $role,
-            'eigen_aanvragen'=> $eigen_aanvragen,
+            'currentUser' =>$currentUser,
+            'currentUserEmail'=> $currentUserEmail,
             // HuisdierBenodigdheden
             'eersteHuisdier'=> $eersteHuisdier,
             'padVoorFoto' => $padVoorFoto,
             'naamVanFoto' => $naamVanFoto,
-
-
+            
+            
             'huisdieren' => $huisdieren,
             'soorten' => $soorten,
-
-            'currentUserEmail'=> $currentUserEmail,
+            
+            'eigen_aanvragen'=> $eigen_aanvragen,
             'aanvragen' => $aanvragen,
             'reacties' => $reacties,
             'reviewsAlsHuisdierEigenaarGegeven' => $reviewsAlsHuisdierEigenaarGegeven,

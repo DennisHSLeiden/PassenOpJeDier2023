@@ -23,19 +23,48 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 60%;
 }
 
 .card-header {
     margin-bottom: 10px;
 }
 
-.card-content {
-    /* Inhoudsstijlen */
-}
-
 .card-footer {
     margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
 }
+
+.file-input-container {
+    display: inline-block;
+    position: relative;
+}
+
+.file-input {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #e2e8f0;
+    border: none;
+    border-radius: 4px;
+    color: #4a5568;
+    cursor: pointer;
+}
+
+/* Optioneel: Verberg de tekst "Nog geen bestand gekozen" */
+.file-input-container:after {
+    content: '';
+    display: none;
+}
+
 
 .card-button {
     display: inline-block;
@@ -216,42 +245,6 @@ form.addhuisdieroverlay {
 .btn {
     width: 200px;
 }
-
-/*
-.form-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.form-container label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.form-container input[type="text"],
-.form-container input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-bottom: 10px;
-}
-
-.submit-btn,
-.cancel-btn {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.cancel-btn {
-    background-color: #ccc;
-    margin-left: 10px;
-} */
 
 .content {
     margin-top: 30px;

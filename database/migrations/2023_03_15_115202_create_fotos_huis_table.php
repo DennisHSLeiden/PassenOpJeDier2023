@@ -17,10 +17,8 @@ class CreateFotosHuisTable extends Migration
             Schema::create('fotos_huis', function (Blueprint $table) {
                 $table->bigIncrements('foto_huis_id');
                 $table->string('email');
-                $table->string('titel');
-                $table->string('src');
-                $table->string('alt');
-                $table->string('beschrijving');
+                $table->string('path');
+                $table->string('filename');
                 $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
             });
         }

@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             UsersTableSeeder::class,
-            // ExtraUserInformationTableSeeder::class,
+            ExtraUserInformationTableSeeder::class,
             SoortenTableSeeder::class,
             HuisdierTableSeeder::class,
-            // FotosHuisTableSeeder::class,
+            FotosHuisTableSeeder::class,
             FotosHuisdierTableSeeder::class,
             AanvraagTableSeeder::class,
             ReactieTableSeeder::class,

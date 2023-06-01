@@ -115,3 +115,9 @@ body {
     align-items: center;
     flex-direction: column;
 }
+
+.persoon-card {
+    padding: 0;
+    height: 220px;
+    width: 400px;
+}

@@ -26,14 +26,7 @@ class ExtraUserInformationTableSeeder extends Seeder
         ]);
 
         DB::table('extra_user_information')->insert([
-            'email' => 'dinosaur@gmail.com', //this references Dino in users
-            'voornaam' => 'Dino',
-            'achternaam' => 'Saur',
-            'telefoonnummer' => '0612345678',
-            'geboortedatum' => '0001-01-01',
-            'woonplaats' => 'Jura',
-            'straat'=> 'BosGrot',
-            'huisnummer'=> '6'
+            'email' => 'dinosaur@gmail.com'
         ]);
     }
 }

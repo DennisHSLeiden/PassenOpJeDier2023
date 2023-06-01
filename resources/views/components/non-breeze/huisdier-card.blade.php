@@ -1,6 +1,7 @@
 @push('css')
 <link rel="stylesheet" href="/css/huisdier-card.css">
 @endpush
+
 <section>
   <section class="card">
     <section class="card-left">
@@ -18,14 +19,29 @@
     </section>
     <section class="card-right">
       <section class="card-header">
-        <h1>Mijn naam is {{ $huisdier->naam }}</h1>
-        <p>Eigenaar: {{ $huisdier->email }}</p>
+        <h2>Mijn naam is {{ $huisdier->naam }}</h2>
       </section>
       <section class="card-content">
-        <!-- Inhoudsinformatie hier -->
-      </section>
-      <section class="card-footer">
-        <a class="card-button js__toggleReview" id="js__toggleReview{{ $huisdier->huisdier_id }}">Show Reviews</a>
+        <p>Eigenaar: {{ $huisdier->email }}</p>
+        <p>Ik ben een {{$huisdier->huisdierSoort()->first()->soort}}</p>
+        <p> Informatie over mij:</p>
+        <p>{{$huisdier->generieke_informatie}}</p>
+        </section>
+        <section class="card-footer">
+        <section class="huisdier-card-footer-left">
+          <a class="card-button js__toggleReview" id="js__toggleReview{{ $huisdier->huisdier_id }}">Show Reviews</a>
+        </section>
+        <section class="huisdier-card-footer-right">
+          <h1> Voeg een extra foto van je huisdier toe! </h1>
+            <form action="mijnHuisdieren/voegFotoToe/{{$huisdier->huisdier_id}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <section class="file-input-container">
+                    <input type="file" name="foto" id="foto" accept="image/*" class="file-input">
+                    <label for="foto" class="file-label">Bestand kiezen</label>
+                </section>
+                <button type="submit">Opslaan</button>
+            </form>
+        </section>
       </section>
     </section>
   </section>
