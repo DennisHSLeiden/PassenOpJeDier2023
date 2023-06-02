@@ -4,7 +4,6 @@
     align-items: center;
 }
 
-
 .profiel-indeling-top,
 .profiel-indeling {
     display: flex;
@@ -162,4 +161,31 @@ a {
 .profiel-indeling-bottom-right {
     width: 240px;
     height: 20px;
+}
+
+.edit-knop {
+    text-decoration: none;
+    color: inherit;
+    padding: 3px 6px;
+    background: lightgrey;
+    border-radius: 8px;
+}
+
+.edit-knop:hover {
+    background: #2c8be3;
+}
+
+@media screen and (max-width: 800px) {
+    .profiel-indeling-top {
+        flex-direction: column;
+    }
+
+    .title {
+        width: 400px;
+        margin-left: 15px;
+    }
+
+    .reviews-container {
+        margin-bottom: 50px;
+    }
 }

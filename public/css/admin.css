@@ -1,27 +1,27 @@
 .cardsHolder {
-    width:340px;
-    height:80%;
+    width: 340px;
+    height: 430px;
     background: rgb(230, 230, 230);
-    padding:10px;
+    padding: 10px;
     overflow-y: auto;
 }
 
 .verdeling {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 10%;
-    height:80%;
+    height: 80%;
 }
 
 .admin-card {
-    position:relative;
+    position: relative;
 }
 
 .AdminButton {
-    background:cyan;
-    width:100px;
-    height:15px;
+    background: cyan;
+    width: 100px;
+    height: 15px;
     border-radius: 10px;
 
     position: absolute;
@@ -29,6 +29,16 @@
     right: 20px;
 }
 
-.AdminButton a{
+.AdminButton a {
     align-content: center;
+}
+
+@media screen and (max-width: 730px) {
+    .verdeling {
+        flex-direction: column;
+    }
+
+    .cardsHolder {
+        margin-bottom: 20px;
+    }
 }

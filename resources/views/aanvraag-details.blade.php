@@ -1,41 +1,40 @@
 @section('title')
-{{"PassenOpJeDier | Aanvraag"}}
+{{ "PassenOpJeDier | Aanvraag" }}
 @endsection
+
+@push('css')
+<link rel="stylesheet" href="/css/aanvraag-details.css">
+@endpush
 
 @extends('body')
 @section('content')
-
-
 <main class="content">
-
     <section>
-        <h1> Dit zijn de reacties op een aanvraag voor {{$huisdier->naam}} </h1>
+        <h1>Dit zijn de reacties op een aanvraag voor {{ $huisdier->naam }}</h1>
         @foreach ($reacties as $reactie)
-            @if(is_null($reactie->antwoord))
-                <section>
-                    <p> {{$reactie->comment}} </p>
-                
-                    <form action="../reageer/{{$reactie->reactie_id}}" method="POST" id="js--reageer">
-                    @csrf
+        @if (is_null($reactie->antwoord))
+        <section class="reactie-kaartje">
+            <p class="comment">{{ $reactie->comment }}</p>
 
-                        <label for="True">Oppas Aannemen</label><br>
-                        <input type="radio" id='True' name="antwoord" value='1'>
-
-                        <label for="False">Oppas Weigeren</label><br>
-                        <input type="radio" id='False' name="antwoord" value='0'>
-
-
-                        <input type="submit" id="js--reageer" value="Voeg reactie toe">
-                    </form>
-
+            <form action="../reageer/{{ $reactie->reactie_id }}" method="POST" class="reageer-form">
+                @csrf
+                <section class="reactie-knopper">
+                    <label class="reageer-keuze-container">Oppas Aannemen
+                        <input type="radio" id="True" name="antwoord" value="1">
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <label class="reageer-keuze-container">Oppas Weigeren
+                        <input type="radio" id="False" name="antwoord" value="0">
+                        <span class="checkmark"></span>
+                    </label>
                 </section>
-            @endif
+
+                <input type="submit" value="Voeg reactie toe">
+            </form>
+        </section>
+        @endif
         @endforeach
-    </section> 
-
+    </section>
 </main>
-
 @endsection
-
-
-

@@ -46,9 +46,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $extraUserInfo = new ExtraUserInformation();
-        $extraUserInfo->email = $email;
-        $extraUserInfo->save();
+        $extraUserInfo = ExtraUserInformation::create([
+            'email' => $request->email,
+        ]);
 
         event(new Registered($user));
 

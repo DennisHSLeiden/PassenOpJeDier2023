@@ -112,8 +112,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-});
 
+
+});
+function updateFileName(input) {
+    var fileName = input.files[0].name;
+    var label = input.nextElementSibling;
+    label.textContent = fileName;
+}
 
 
 

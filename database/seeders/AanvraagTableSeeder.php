@@ -24,7 +24,7 @@ class AanvraagTableSeeder extends Seeder
         ]);
 
         DB::table('aanvraag')->insert([//id = 2
-            'huisdier_id' => '2', //Refereert naar Otso in HuisdierTableSeeder
+            'huisdier_id' => '2', //Refereert naar Cooper in HuisdierTableSeeder
             'wanneer' => 'Morgen',
             'prijs' => '30 euro',
             'beschikbaar' => false,
@@ -38,31 +38,36 @@ class AanvraagTableSeeder extends Seeder
         ]);
 
         DB::table('aanvraag')->insert([//id = 4
-            'huisdier_id' => '1', //Refereert naar Otso in HuisdierTableSeeder
+            'huisdier_id' => '2', //Refereert naar Cooper in HuisdierTableSeeder
             'wanneer' => 'Morgen',
             'prijs' => '30 euro',
         ]);
 
         DB::table('aanvraag')->insert([//id = 5
-            'huisdier_id' => '4', //Refereert naar monster in HuisdierTableSeeder
+            'huisdier_id' => '3', //Refereert naar Jacky in HuisdierTableSeeder
             'wanneer' => 'Volgende week',
             'prijs' => '45 euro',
         ]);
 
         DB::table('aanvraag')->insert([//id = 6
-            'huisdier_id' => '2', //Refereert naar Cooper in HuisdierTableSeeder
+            'huisdier_id' => '4', //Refereert naar Monster in HuisdierTableSeeder
             'wanneer' => 'Gisteren',
             'prijs' => '30 euro per dag',
         ]);
+        DB::table('aanvraag')->insert([//id = 6
+            'huisdier_id' => '5', //Refereert naar Monster in HuisdierTableSeeder
+            'wanneer' => '29 februari',
+            'prijs' => '100 euro',
+        ]);
         DB::table('aanvraag')->insert([//id = 7
-            'huisdier_id' => '2', //Refereert naar Cooper in HuisdierTableSeeder
+            'huisdier_id' => '1', //Refereert naar Otso in HuisdierTableSeeder
             'wanneer' => 'Gisteren',
             'prijs' => '30 euro per dag',
             'beschikbaar' => false,
-            'email_oppasser' => 'dennisleyting@gmail.com'
+            'email_oppasser' => 'dinosaur@gmail.com'
         ]);
         DB::table('aanvraag')->insert([//id = 8
-            'huisdier_id' => '3', //Refereert naar Cooper in HuisdierTableSeeder
+            'huisdier_id' => '2', //Refereert naar Cooper in HuisdierTableSeeder
             'wanneer' => 'Gisteren',
             'prijs' => '30 euro per dag',
             'beschikbaar' => false,

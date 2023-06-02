@@ -29,14 +29,26 @@ class HuisdierTableSeeder extends Seeder
         DB::table('huisdier')->insert([ //id #3
             'email' => 'dinosaur@gmail.com', //Refereert naar dino in usertable
             'naam' => 'Jacky',
-            'soort_id' => '2',
+            'soort_id' => '3', //Cavia
             'generieke_informatie' => 'Jacky doet niks op een dag'
         ]);
         DB::table('huisdier')->insert([ //id #4
             'email' => 'dinosaur@gmail.com', //Refereert naar dino in usertable
             'naam' => 'Monster',
-            'soort_id' => '4',
-            'generieke_informatie' => ''
+            'soort_id' => '4', //Rat
+            'generieke_informatie' => 'Hier staat een heleboel generieke belangrijke informatie!'
+        ]);
+        DB::table('huisdier')->insert([ //id #5
+            'email' => 'dennisleyting@gmail.com', //Refereert naar Dennis in usertable
+            'naam' => 'Marvin',
+            'soort_id' => '5', //Konijn
+            'generieke_informatie' => 'Hier staat een heleboel generieke belangrijke informatie!'
+        ]);
+        DB::table('huisdier')->insert([ //id #6
+            'email' => 'dennisleyting@gmail.com', //Refereert naar Dennis in usertable
+            'naam' => 'Fizzy',
+            'soort_id' => '1', //kat
+            'generieke_informatie' => 'Hier staat een heleboel generieke belangrijke informatie!'
         ]);
     }
 }

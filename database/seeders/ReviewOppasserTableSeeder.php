@@ -26,6 +26,8 @@ class ReviewOppasserTableSeeder extends Seeder
             'aanvraag_id' => '2',
             'email_van' => 'dinosaur@gmail.com',
             'email_voor' => 'dennisleyting@gmail.com',
+            'review' => 'Hier staat een geweldige Review, en je bent er echt van overtuigd dat Dennis een goede oppasser is!',
+            'rating' => 4
         ]);
     }
 }

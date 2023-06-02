@@ -47,7 +47,7 @@ body {
     border: none;
     text-decoration: none;
     cursor: pointer;
-    background-color: lightgray;
+    background-color: #2c8be3;
     text-align: center;
 
 }
@@ -120,4 +120,70 @@ body {
     padding: 0;
     height: 220px;
     width: 400px;
+}
+
+.dashboard-aanvraag-card {
+    padding: 0;
+    height: 220px;
+    width: 400px;
+}
+
+.aanvraag-header,
+.dashboard-aanvraag-card-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-aanvraag-card-content-right {
+    margin-left: 10px;
+}
+
+.aanvraag-header-right,
+.aanvraag-header-left,
+.dashboard-aanvraag-card-content-right,
+.dashboard-aanvraag-card-content-left {
+    width: 50%;
+}
+
+.aanvraag-header-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: grey;
+    cursor: pointer;
+}
+
+.aanvraag-header-left:hover {
+    background: darkgrey;
+    color: white;
+}
+
+.review-plaatsen-button {
+    padding: 4px 8px;
+    background: lightgray;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.review-plaatsen-button:hover {
+    background: #2c8be3;
+}
+
+.review-plaatsen-button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media screen and (max-width: 830px) {
+    .card-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        height: auto;
+    }
+
+    .content {
+        margin-bottom: 70px;
+
+    }
 }

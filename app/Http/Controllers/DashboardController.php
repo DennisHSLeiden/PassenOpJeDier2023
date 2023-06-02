@@ -40,26 +40,7 @@ class DashboardController extends Controller
 
 
         //alle gebuikers
-        $gebruikers = User::all();
-        // Alle aanvragen, behalve die van jezelf, zodat je kan browsen
-        $aanvragen = array();
-        foreach ($gebruikers as $gebruiker){
-            if ($gebruiker->email !== $currentUserEmail){
-                $huisdieren_gebruiker = $gebruiker->allHuisdieren;
-                if ($huisdieren_gebruiker){
-                    foreach ($huisdieren_gebruiker as $huisdier){
-                        $aanvragen_huisdier = $huisdier->allAanvragen;
-                        if ($aanvragen_huisdier){
-                            foreach ($aanvragen_huisdier as $aanvraag){
-                                if ($aanvraag->beschikbaar){
-                                    array_push($aanvragen, $aanvraag);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+
         $soorten = Soort::all();
         
         $role = User::where('email', $currentUserEmail)->first()->role;
@@ -72,8 +53,13 @@ class DashboardController extends Controller
         
         //HuisdierBenodigdheden
         $eersteHuisdier = User::where('email', $currentUserEmail)->first()->allHuisdieren->first();
-        $padVoorFoto = $eersteHuisdier->allFotosHuisdier()->first()->path;
-        $naamVanFoto = $eersteHuisdier->allFotosHuisdier()->first()->filename;
+        if($eersteHuisdier){
+            $padVoorFoto = $eersteHuisdier->allFotosHuisdier()->first()->path;
+            $naamVanFoto = $eersteHuisdier->allFotosHuisdier()->first()->filename;
+        }else{
+            $padVoorFoto = null;
+            $naamVanFoto = null;
+        }
 
 
     
@@ -92,7 +78,6 @@ class DashboardController extends Controller
             'soorten' => $soorten,
             
             'eigen_aanvragen'=> $eigen_aanvragen,
-            'aanvragen' => $aanvragen,
             'reacties' => $reacties,
             'reviewsAlsHuisdierEigenaarGegeven' => $reviewsAlsHuisdierEigenaarGegeven,
             'ReviewsAlsOppasGekregen' => $ReviewsAlsOppasGekregen,

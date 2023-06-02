@@ -1,6 +1,6 @@
 .Jouw-user-Card {
-    width:auto;
-    background:red;
+    width: auto;
+    background: white;
     margin: 10px;
     border-radius: 10px;
 }
@@ -8,20 +8,20 @@
 .card-image {
     border-radius: 4px;
     padding: 5px;
-    width:35%;
+    width: 35%;
     margin: 10px;
 }
 
 img {
-    width:100%;
+    width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 10px;
 }
 
 .user-card-information {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width:auto;
+    width: auto;
 }

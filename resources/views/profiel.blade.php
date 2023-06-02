@@ -15,7 +15,7 @@
 
 
 <main class="profiel-content">
-    <h1> Welkom op het profiel van {{$profielOwner->email}} </h1>
+    <h1 class= 'title'> Welkom op het profiel van {{$profielOwner->email}} </h1>
     <section class="profiel-indeling-top">
         <section class="profiel-indeling-left">
             <section class="square-photo-persoon">
@@ -65,7 +65,7 @@
 
             <!-- Toon de edit-knop als de gebruiker de eigenaar is -->
             @if ($isOwner)
-                <a href="{{ route('extrauserinformation.edit', $extraUserInfo->email) }}">Edit</a>
+                <a class ="edit-knop" href="{{ route('extrauserinformation.edit', $extraUserInfo->email) }}">Edit</a>
             @endif
         </section>
         <section class="profiel-indeling-right">
@@ -78,7 +78,7 @@
                     @endforeach
                     @if ($profielOwner->allFotosHuis()->count() === 0)
                         <section class="slide photo-container active">
-                            <img src="/storage/img/no-picture/Placeholder_image.png" alt="Placeholder Foto">
+                            <img src="/storage/img/no-picture/Placeholder_home.jpg" alt="Placeholder Foto">
                         </section>
                     @endif
                 </section>

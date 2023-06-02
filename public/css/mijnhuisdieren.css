@@ -34,12 +34,17 @@
     margin-top: auto;
     display: flex;
     flex-direction: row;
-    gap: 60px;
+    justify-content: space-between;
 }
 
 .file-input-container {
     display: inline-block;
     position: relative;
+}
+
+.file-input-container:after {
+    content: '';
+    display: none;
 }
 
 .file-input {
@@ -60,10 +65,6 @@
 }
 
 /* Optioneel: Verberg de tekst "Nog geen bestand gekozen" */
-.file-input-container:after {
-    content: '';
-    display: none;
-}
 
 
 .card-button {
@@ -135,11 +136,6 @@
     /* Aanpassen naar de gewenste afstand vanaf de rechterkant */
 }
 
-/* .reviews-container {
-    display: none;
-} */
-
-/* overlay shit */
 
 
 form.addhuisdieroverlay {
@@ -260,4 +256,47 @@ form.addhuisdieroverlay {
     margin: 20px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.add-huisdier-button {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.add-huisdier-button:hover {
+    background-color: darkgrey;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+
+@media screen and (max-width: 740px) {
+    .card {
+        flex-direction: column;
+        width: 340px;
+        height: 500px;
+    }
+
+    .card-right {
+        width: auto;
+    }
+
+    .card-footer {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .review-card {
+        margin-left: 0;
+        margin-right: 0;
+        width: 330px;
+    }
 }

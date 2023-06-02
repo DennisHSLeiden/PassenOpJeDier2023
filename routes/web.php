@@ -37,7 +37,8 @@ Route::post('profiel/edit/foto_persoon', 'App\Http\Controllers\ProfielController
 Route::post('profiel/edit/foto_woning', 'App\Http\Controllers\ProfielController@uploadWoningPhoto')->name('upload.photo.woning');
 
 Route::post('/addAanvraag', 'App\Http\Controllers\AanvraagController@addAanvraag')->middleware(['auth', 'blocked']);
-Route::get('/aanvraag-details/{id}/', 'App\Http\Controllers\AanvraagController@show')->middleware(['auth', 'blocked']);
+Route::get('/alleAanvragen', 'App\Http\Controllers\AanvraagController@show')->middleware(['auth', 'blocked']);
+Route::get('/aanvraag-details/{id}/', 'App\Http\Controllers\AanvraagController@show_details')->middleware(['auth', 'blocked']);
 
 
 Route::get('/addReactie/{id}', 'App\Http\Controllers\ReactieController@show')->middleware(['auth', 'blocked']);

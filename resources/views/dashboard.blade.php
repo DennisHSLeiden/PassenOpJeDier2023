@@ -9,6 +9,10 @@
 <link rel="stylesheet" href="/css/dashboard.css">
 @endpush
 
+@push('js')
+<script src="/js/main.js"></script>
+@endpush
+
 
 <main class="content">
     
@@ -38,42 +42,15 @@
                 </section>
             </section>
         </section>
-        
-        <section class="general-card">
-            <section class='general-card-header'>
-                <section class="add-button" id="js--addAanvraagBtn">
-                    <span>Maak een nieuwe aanvraag aan</span>
-                </section>
-            </section>
-            @include('./components/non-breeze/add_aanvraag_overlay')
-            <section class='general-card-content'>
-                @foreach ($eigen_aanvragen as $eigen_aanvraag)
-                @include('./components/non-breeze/aanvraag-card')
-                @endforeach
-            </section>
-            <form id="filterForm">
-                <section class="dropdown">
-                    <button onclick="toggleDropdown()" class="dropdown-toggle">Filter Soort</button>
-                    <section id="checkboxes" class="checkboxes">
-                        <label><input type="checkbox" name="soort" value="hond" onchange="filterAanvragen()">Hond</label>
-                        <label><input type="checkbox" name="soort" value="kat" onchange="filterAanvragen()">Kat</label>
-                        <!-- Voeg hier andere checkboxen toe -->
-                    </section>
-                </section>
-            </form>
-            <section class="general-card-content alle-available-opdrachten column-information">
-                <!-- @foreach ($aanvragen as $aanvraag)
-                    @include('./components/non-breeze/reactie-card')
-                @endforeach -->
-            </section>
-        </section>
-        
-
 
         <section class="general-card huisdier-card">
             <section class='huisdier-card-indeler'>
                 <section class="square-photo">
-                    <img src="{{$padVoorFoto}}/{{$naamVanFoto}}" alt="Vierkante foto">
+                    @if ($padVoorFoto)
+                        <img src="{{$padVoorFoto}}/{{$naamVanFoto}}" alt="Foto van je huisdier">
+                    @else
+                        <img src="storage/img/no-picture/logo.png" alt="Placeholder huisdier foto">
+                    @endif
                 </section>
                 <section class='indeling-rechts'>
                     <section class='general-card-header'>
@@ -83,10 +60,54 @@
                         </a>
                     </section>
                     <section class='general-card-content'>
+                    @if ($padVoorFoto)
                         <p> Dit is {{$eersteHuisdier->naam}}</p>
                         <p> Hij is een {{$eersteHuisdier->huisdierSoort()->first()->soort}}</p>
+                        <br>
+                        <p> Ga snel naar </p>
+                        <p>'Mijn Huisdieren'</p>
+                        <p> om de rest te zien </p>
+                    @else
+                        <p> Je hebt helaas nog </p>
+                        <p> geen huisdieren. </p>
+                        <br>
+                        <p> Ga snel naar </p>
+                        <p>'Mijn Huisdieren'</p>
+                        <p> om een aan te maken</p>
+                    @endif
                     </section>
                 </section>
+            </section>
+        </section>
+        
+        <section class="general-card dashboard-aanvraag-card">
+            <section class='general-card-header aanvraag-header'>
+                <section class="aanvraag-header-left">
+                    <section class="add-aanvraag-button" id="js--addAanvraagBtn">
+                        <span>Maak aanvraag aan +</span>
+                    </section>
+                </section>
+                <section class= "aanvraag-header-right">
+                    <a href="alleAanvragen" class="arrow-button">
+                        Alle Aanvragen
+                        <span class="arrow">&#9658;</span>
+                    </a>
+                </section>
+            </section>
+            @include('./components/non-breeze/add_aanvraag_overlay')
+            <section class='general-card-content dashboard-aanvraag-card-content'>
+                <section class="dashboard-aanvraag-card-content-left">
+                    @foreach ($eigen_aanvragen as $eigen_aanvraag)
+                    @include('./components/non-breeze/aanvraag-card')
+                    @endforeach
+                </section>
+                <section class="dashboard-aanvraag-card-content-right">
+                    <p> Ga naar "alle aanvragen"</p>
+                    <p> om te zoeken naar een </p>
+                    <p> naar een huisdier die </p>
+                    <p> op zoek is naar een oppas</p>
+                </section>
+
             </section>
         </section>
 
@@ -97,14 +118,14 @@
             <section class='general-card-header'>
                 @foreach ($ReviewsAlsOppasGegeven as $review)
                     @if (!$review->rating)
-                        <button>
+                        <button class="review-plaatsen-button">
                             <a href ='reviewHuisdier/{{$review->review_huisdier_id}}'>Geef een review aan {{$review->reviewHuisdierAanvraag()->first()->aanvraagHuisdier()->first()->naam}} </a>
                         </button>
                     @endif
                 @endforeach
                 @foreach ($reviewsAlsHuisdierEigenaarGegeven as $review)
                     @if (!$review->rating)
-                        <button>
+                        <button class="review-plaatsen-button">
                             <a href ='reviewOppasser/{{$review->review_oppasser_id}}'>Geef een review aan {{$review->reviewOppasserAanvraag()->first()->email_oppasser}} </a>
                         </button>
                     @endif

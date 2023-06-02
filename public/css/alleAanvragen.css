@@ -1,0 +1,51 @@
+.alle-aanvragen-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.filter-container {
+    position: relative;
+    width: 650px;
+}
+
+.checkboxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+}
+
+.alle-aanvragen-container {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.oppas-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #337ab7;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.oppas-button:hover {
+    background-color: #23527c;
+}
+
+@media screen and (max-width: 740px) {
+    .filter-container {
+        width: 350px;
+        margin-bottom: 100px;
+    }
+
+    .checkboxes {
+        grid-template-columns: 1fr 1fr;
+    }
+}
