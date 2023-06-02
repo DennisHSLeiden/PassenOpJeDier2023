@@ -8,7 +8,7 @@
     <section class="row-information">
 
         <figure class="card-image">
-            <img src="/img/Cooper.jpg" alt="The dog cooper">
+            <img src="/{{$aanvraag->aanvraagHuisdier->allFotosHuisdier->first()->path}}/{{$aanvraag->aanvraagHuisdier->allFotosHuisdier->first()->filename}}" alt="foto van huisdier">
         </figure>
 
         <section class="column-information reactie-card-information">

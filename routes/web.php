@@ -31,10 +31,10 @@ Route::get('profiel/{email}', 'App\Http\Controllers\ProfielController@show')->na
 Route::get('profiel/{email}/edit', 'App\Http\Controllers\ProfielController@edit')->name('extrauserinformation.edit')->middleware(['auth', 'blocked']);
 Route::put('profiel/{email}/edit', 'App\Http\Controllers\ProfielController@update')->name('extrauserinformation.update')->middleware(['auth', 'blocked']);
 
-Route::post('profiel/edit/foto_persoon', 'App\Http\Controllers\ProfielController@uploadPersoonPhoto')->name('upload.photo.persoon');
+Route::post('profiel/edit/foto_persoon', 'App\Http\Controllers\ProfielController@uploadPersoonPhoto')->name('upload.photo.persoon')->middleware(['auth', 'blocked']);
 
 
-Route::post('profiel/edit/foto_woning', 'App\Http\Controllers\ProfielController@uploadWoningPhoto')->name('upload.photo.woning');
+Route::post('profiel/edit/foto_woning', 'App\Http\Controllers\ProfielController@uploadWoningPhoto')->name('upload.photo.woning')->middleware(['auth', 'blocked']);
 
 Route::post('/addAanvraag', 'App\Http\Controllers\AanvraagController@addAanvraag')->middleware(['auth', 'blocked']);
 Route::get('/alleAanvragen', 'App\Http\Controllers\AanvraagController@show')->middleware(['auth', 'blocked']);
@@ -45,7 +45,7 @@ Route::get('/addReactie/{id}', 'App\Http\Controllers\ReactieController@show')->m
 Route::post('/addReactie/{id}/aanmaken', 'App\Http\Controllers\ReactieController@addReactie')->middleware(['auth', 'blocked']);
 Route::post('/reageer/{id}', 'App\Http\Controllers\ReactieController@Reageer')->middleware(['auth', 'blocked']);
 
-Route::get('/stelreviewsbeschikbaar/{id}', 'App\Http\Controllers\ReviewController@beschikbaarstellen')->name('stelreviewsbeschikbaar');
+Route::get('/stelreviewsbeschikbaar/{id}', 'App\Http\Controllers\ReviewController@beschikbaarstellen')->middleware(['auth', 'blocked'])->name('stelreviewsbeschikbaar');
 
 Route::get('/reviewHuisdier/{id}', 'App\Http\Controllers\ReviewController@showHuisdier')->middleware(['auth', 'blocked']);
 Route::post('/reviewHuisdier/{id}/geven', 'App\Http\Controllers\ReviewController@reviewHuisdierGeven')->middleware(['auth', 'blocked']);

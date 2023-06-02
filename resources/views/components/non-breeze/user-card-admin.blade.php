@@ -19,7 +19,7 @@
             <img src="/storage/img/no-picture/Profile_avatar_placeholder_large.png" alt="Profielfoto">
             <p>Er is helaas nog geen foto</p>
         @else
-            <img src="/{{$profielOwner->UserExtra_user_information()->first()->path}}/{{$profielOwner->UserExtra_user_information()->first()->filename}}" alt="Profielfoto">
+            <img src="/{{$user->UserExtra_user_information()->first()->path}}/{{$user->UserExtra_user_information()->first()->filename}}" alt="Profielfoto">
         @endif
         </figure>
         

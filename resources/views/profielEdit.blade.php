@@ -88,7 +88,7 @@
                     @endforeach
                     @if ($profielOwner->allFotosHuis()->count() === 0)
                         <section class="slide photo-container active">
-                            <img src="/storage/img/no-picture/Placeholder_image.png" alt="Placeholder Foto">
+                            <img src="/storage/img/no-picture/Placeholder_home.jpg" alt="Placeholder Foto">
                         </section>
                     @endif
                 </section>
